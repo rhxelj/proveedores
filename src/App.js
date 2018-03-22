@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router} from 'react-router-dom';
 import 'materialize-css/dist/css/materialize.min.css';
 import Header from './components/Header';
+import Main from './components/Main';
+import Footter from './components/Footter';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header/>
-        <p>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
 
-export default App;
+const App =() => (
+  <Router>
+  <div>
+    <Header/>
+    <Main />
+    <Footter/>  
+  </div>
+  </Router>
+);
+
+ export default App;
