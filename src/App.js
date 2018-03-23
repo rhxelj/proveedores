@@ -8,11 +8,11 @@ import Footter from './components/Footter';
 
 const App =() => (
   <Router>
-  <div>
-    <Header/>
-    <Main />
-    <Footter/>  
-  </div>
+    <div>
+      <Header/>
+      <Main />
+      <Footter/>  
+    </div>
   </Router>
 );
 

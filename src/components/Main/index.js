@@ -7,7 +7,7 @@ const Main = () => (
     <main>
         <div className="container">
             <Route exact path="/" component={Posts}/>
-            <Route exact path="/about" component={About}/>
+            <Route path="/about" component={About}/>
         </div>
     </main>
 );
