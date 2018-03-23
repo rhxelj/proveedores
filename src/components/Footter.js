@@ -16,8 +16,7 @@ const Footter = () => (
                 <ul>
                   <li><Link to="/" className="grey-text text-lighten-3" >Home</Link></li>
                   <li><Link to="/about" className="grey-text text-lighten-3" >about</Link></li>
-                  <li><Link to="" className="grey-text text-lighten-3" >Create Post</Link></li>
-                  <li><Link to="" className="grey-text text-lighten-3" >Link 4</Link></li>
+                  <li><Link to="/new-post" className="grey-text text-lighten-3" >Create Post</Link></li>
                 </ul>
               </div>
             </div>

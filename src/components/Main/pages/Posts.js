@@ -10,7 +10,7 @@ const Posts = () => {
             <Card 
                 truncate
                 key={postKey} 
-                title={post.tile}  
+                title={post.title}  
                 action={{
                     href: `/posts/${postKey}`,
                     label: 'Go to Post...',

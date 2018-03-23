@@ -12,7 +12,7 @@ const Header = () => (
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
-                    <li><Link to="#collapsible.html">Create Post</Link></li>
+                    <li><Link to="/new-post">Create Post</Link></li>
                 </ul>
                 </div>
                 </div>
