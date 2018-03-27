@@ -10,9 +10,10 @@ const Card = ({title, action, children, truncate}) =>(
         <span className="card-title">{title}</span>
         <p className={truncate ? 'truncate' :  ''}>{children}</p>
         </div>
-        <div className="card-action">
-        <Link to={action.href}>{action.label}</Link>
-        </div>
+        {action && 
+            <div className="card-action">
+            <Link to={action.href}>{action.label}</Link>
+            </div>}
     </div>
 );
 
