@@ -8,11 +8,14 @@ const Header = () => (
         <nav className="blue">
             <div  className="container">    
                 <div className="nav-wrapper">
-                <Link to="/" className="brand-logo">My React Blog</Link>
+                <Link to="/" className="brand-logo">Proveedores APP</Link>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/new-post">Create Post</Link></li>
+                    {/* <li><Link to="/">InHome</Link></li> */}
+                    
+                    <li><Link to="/create">Create</Link></li>
+                    <li><Link to="/read">Read</Link></li>
+                    <li><Link to="/update">Update</Link></li>
+                    <li><Link to="/delete">Delete</Link></li>
                 </ul>
                 </div>
                 </div>

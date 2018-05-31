@@ -8,22 +8,23 @@ const Footter = () => (
           <div className="container">
             <div className="row">
               <div className="col l6 s12">
-                <h5 className="white-text">My React Blog</h5>
-                <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 className="white-text">Proveedores APP</h5>
+                <p className="grey-text text-lighten-4">App Alta Baja y Modificacion de probeedores.</p>
               </div>
               <div className="col l4 offset-l2 s12">
                 <h5 className="white-text">Links</h5>
                 <ul>
-                  <li><Link to="/" className="grey-text text-lighten-3" >Home</Link></li>
-                  <li><Link to="/about" className="grey-text text-lighten-3" >about</Link></li>
-                  <li><Link to="/new-post" className="grey-text text-lighten-3" >Create Post</Link></li>
+                  <li><Link to="/create" className="grey-text text-lighten-3">Create</Link></li>
+                  <li><Link to="/read" className="grey-text text-lighten-3">Read</Link></li>
+                  <li><Link to="/update" className="grey-text text-lighten-3">Update</Link></li>
+                  <li><Link to="/delete" className="grey-text text-lighten-3">Delete</Link></li>
                 </ul>
               </div>
             </div>
           </div>
           <div className="footer-copyright">
             <div className="container">
-            © 2014 Copyright My React Blog By CRUX
+            © 2018 Copyright OrlandoLonas By CRUX
             </div>
           </div>
         </footer>
