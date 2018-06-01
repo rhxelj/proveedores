@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "name": "PCxxxx",
+      "name": "PC modificado en CEMS",
       "price": "100",
       "id": 3
     },
@@ -16,12 +16,12 @@
       "id": 8
     },
     {
-      "name": "Linux modificadozxzx",
+      "name": "Linux",
       "price": "3000",
       "id": 9
     },
     {
-      "name": "PC",
+      "name": "PC ttttt",
       "price": "3000",
       "id": 10
     },
@@ -31,12 +31,18 @@
       "id": 12
     },
     {
+      "name": "ewrwrewrw",
+      "price": "4",
       "id": 13
     },
     {
+      "name": "sdtgewrtrw",
+      "price": "5",
       "id": 14
     },
     {
+      "name": "sdafrwegfwe",
+      "price": "6",
       "id": 15
     },
     {
@@ -100,6 +106,11 @@
       "name": "en lo de sandra",
       "price": "22222",
       "id": 29
+    },
+    {
+      "name": "cem 123",
+      "price": "456",
+      "id": 30
     }
   ]
 }

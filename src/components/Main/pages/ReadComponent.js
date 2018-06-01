@@ -1,5 +1,8 @@
 import React, { Component} from 'react'
 import request from 'superagent'
+import ReactTable from 'react-table'
+import 'react-table/react-table.css'
+
 
 class ReadComponent extends Component {
     constructor(props){
@@ -27,13 +30,31 @@ class ReadComponent extends Component {
     
     render(){
         const products = this.state.products
-        const listado = 
-            products.map((product) => <li key={product.id}>{product.name} .......... $ {product.price}</li> )
         
         return( 
             <div>
                 <ul>
-                    {listado} 
+                    <ReactTable
+                        data={products}
+                        columns={[
+                             {                   
+                            columns: [
+                                {
+                                Header: "Product Name",
+                                accessor: "name"
+                                },
+                                {
+                                Header: "Product Price",
+                                accessor: "price"
+                                }
+                            ]
+                        }                
+                            
+                        ]}
+                        defaultPageSize={20}
+                        className="-striped -highlight"
+                    />
+                    {/* {listado}  */}
                 </ul>
             </div>
         )
