@@ -63,7 +63,7 @@ class UpdateComponent extends Component {
             }}
           />
         );
-      }
+    }
 
     render(){
         const products = this.state.products
@@ -98,3 +98,4 @@ class UpdateComponent extends Component {
 }
 
 export default UpdateComponent
+

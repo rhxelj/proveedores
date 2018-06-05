@@ -1,116 +1,24 @@
 {
   "data": [
     {
-      "name": "PC modificado en CEMS",
-      "price": "100",
+      "name": "Core I7",
+      "price": "1000",
+      "id": 1
+    },
+    {
+      "name": "xbox 360",
+      "price": "560",
       "id": 3
     },
     {
-      "name": "xcommmmmm",
-      "price": "300",
-      "id": 6
+      "name": "Xbox one",
+      "price": "12000",
+      "id": 4
     },
     {
-      "name": "ahora andacdsacdc",
-      "price": "3000",
-      "id": 8
-    },
-    {
-      "name": "Linux",
-      "price": "3000",
-      "id": 9
-    },
-    {
-      "name": "PC ttttt",
-      "price": "3000",
-      "id": 10
-    },
-    {
-      "name": "PC",
-      "price": "30",
-      "id": 12
-    },
-    {
-      "name": "ewrwrewrw",
-      "price": "4",
-      "id": 13
-    },
-    {
-      "name": "sdtgewrtrw",
-      "price": "5",
-      "id": 14
-    },
-    {
-      "name": "sdafrwegfwe",
-      "price": "6",
-      "id": 15
-    },
-    {
-      "name": "producto nuevo",
-      "price": "caro",
-      "id": 16
-    },
-    {
-      "name": "nuevo en lo de sandra",
-      "price": "10",
-      "id": 17
-    },
-    {
-      "name": "nuevo en mayo",
-      "price": "120",
-      "id": 18
-    },
-    {
-      "id": 19
-    },
-    {
-      "id": 20
-    },
-    {
-      "id": 21
-    },
-    {
-      "id": 22
-    },
-    {
-      "name": "ttttt",
-      "price": "123456",
-      "id": 23
-    },
-    {
-      "name": "casa",
-      "price": "345",
-      "id": 24
-    },
-    {
-      "name": "otro",
-      "price": "333",
-      "id": 25
-    },
-    {
-      "name": "nuevo",
-      "price": "123",
-      "id": 26
-    },
-    {
-      "name": "cems",
-      "price": "777",
-      "id": 27
-    },
-    {
-      "name": "react_crud",
-      "price": "555",
-      "id": 28
-    },
-    {
-      "name": "en lo de sandra",
-      "price": "22222",
-      "id": 29
-    },
-    {
-      "name": "cem 123",
-      "price": "456",
-      "id": 30
+      "name": "nexus 5",
+      "price": "8000",
+      "id": 5
     }
   ]
 }
