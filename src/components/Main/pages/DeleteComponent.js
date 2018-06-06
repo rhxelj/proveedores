@@ -9,10 +9,21 @@ class DeleteComponent extends Component {
         this.state = {
             products:[],
             // filtrado:[],
-            filtered:''
+            filtered:'',
+            toggle: true,
+            id:''
         }
         this.search = this.search.bind(this)
+        this.toggle = this.toggle.bind(this);
     }    
+    
+
+    toggle(event){
+        this.setState(prevState => ({
+            toggle: !prevState.toggle
+          }))
+          return <div>HOLA</div>
+    }
     
     //Read
     read = _ => {
@@ -38,7 +49,8 @@ class DeleteComponent extends Component {
           .then(function(res) {
         // res.body, res.headers, res.status
           })
-          alert("Borrado")
+          //alert("Borrado")
+          this.toggle()
           this.read()
       }
     
@@ -49,8 +61,13 @@ class DeleteComponent extends Component {
         const listado = products.map((product)=> 
            
                 <li key={product.id}>{product.name}  
-                    <button onClick={()=>this.deleteProduct(product.id)}>Delete</button>
+                    {/* <button onClick={()=>this.deleteProduct(product.id)}>Borrar</button> */}
+                    <button className=" red accent-4" onClick={()=>{
+                        this.setState({id:product.id})
+                        this.toggle()}}>Borrar</button>
+
                 </li>
+              
            
         )
         return listado
@@ -60,7 +77,6 @@ class DeleteComponent extends Component {
         var name  = event.target.name
         var value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value
         this.setState({filtered: value})
-        //console.log(this.state.products)
     }
 
     componentDidMount(){
@@ -68,30 +84,21 @@ class DeleteComponent extends Component {
     }
 
     render(){
-        // const products = this.state.products
-        // const listado = products.map((product)=> <li key={product.id}>{product.name}</li>)
-        // let products = this.state.products.filter((product)=>{
-       
-        //     return product.name.toLowerCase().indexOf(this.state.filtered.toLowerCase()) !== -1// return product.name.indexOf(this.state.filtered) !== -1
-        // })
-        // const listado = products.map((product)=> 
-        //     <div>
-        //         <li key={product.id}>{product.name}  
-        //             <button onClick={()=>this.deleteProduct(product.id)}>Delete</button>
-        //         </li>
-                
-        //     </div>
-        // ) 
-       // return (list)
-        // return console.log('listado')
         
         return( 
             <div>
                 <h1>DeleteComponent</h1>
                 <input onChange={this.search} type="text" value={this.state.filtered}/>
                 <ul>
-                    {this.listado()}
-                </ul>
+                    {this.state.toggle ?
+                        this.listado() :
+                        <div>Esta seguro que desea Borrar ? no se puede volver atras ...
+                        <button className=" red accent-4" onClick={()=>this.deleteProduct(this.state.id)}>Borrar</button>
+                        <button className=" blue accent-4" onClick={()=>this.toggle()}>Cancelar</button>
+                        </div>
+                    }
+                
+                        </ul>
             </div>
         )
     }

@@ -1,11 +1,6 @@
 {
   "data": [
     {
-      "name": "Core I7",
-      "price": "1000",
-      "id": 1
-    },
-    {
       "name": "xbox 360",
       "price": "560",
       "id": 3
@@ -14,11 +9,6 @@
       "name": "Xbox one",
       "price": "12000",
       "id": 4
-    },
-    {
-      "name": "nexus 5",
-      "price": "8000",
-      "id": 5
     }
   ]
 }
