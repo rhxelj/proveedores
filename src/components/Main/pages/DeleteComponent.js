@@ -22,7 +22,6 @@ class DeleteComponent extends Component {
         this.setState(prevState => ({
             toggle: !prevState.toggle
           }))
-          return <div>HOLA</div>
     }
     
     //Read
@@ -54,24 +53,42 @@ class DeleteComponent extends Component {
           this.read()
       }
     
+    // listado = _=>{
+    //     let products = this.state.products.filter((product)=>{
+    //         return product.name.toLowerCase().indexOf(this.state.filtered.toLowerCase()) !== -1
+    //     })
+    //     const listado = products.map((product)=> 
+           
+    //             <li key={product.id}>{product.name}  
+    //                 {/* <button onClick={()=>this.deleteProduct(product.id)}>Borrar</button> */}
+    //                 <button className=" red accent-4" onClick={()=>{
+    //                     this.setState({id:product.id})
+    //                     this.toggle()}}>Borrar</button>
+
+    //             </li>
+              
+           
+    //     )
+    //     return listado
+    // } 
     listado = _=>{
         let products = this.state.products.filter((product)=>{
             return product.name.toLowerCase().indexOf(this.state.filtered.toLowerCase()) !== -1
         })
         const listado = products.map((product)=> 
-           
-                <li key={product.id}>{product.name}  
-                    {/* <button onClick={()=>this.deleteProduct(product.id)}>Borrar</button> */}
-                    <button className=" red accent-4" onClick={()=>{
+                <tr>
+                    <td>{product.name}</td>
+                    <td>{product.price}</td>
+                    <td>
+                        <button className=" red accent-4" onClick={()=>{
                         this.setState({id:product.id})
                         this.toggle()}}>Borrar</button>
-
-                </li>
-              
-           
+                    </td>
+                </tr>
+                    
         )
         return listado
-    } 
+    }
     
     search(event){
         var name  = event.target.name
@@ -87,9 +104,34 @@ class DeleteComponent extends Component {
         
         return( 
             <div>
-                <h1>DeleteComponent</h1>
+                <h1>Borrar Proveedor</h1>
                 <input onChange={this.search} type="text" value={this.state.filtered}/>
-                <ul>
+                
+                {this.state.toggle 
+                ?
+                    <table className="striped">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                            {this.listado()}
+                        </tbody>
+                    </table>
+                :
+                <div className="row s12  card-panel hoverable">
+                    <div className="col s6"> Esta seguro que desea Borrar ? no se puede volver atras ...</div>
+                    <div className="col s6 offset-s10">
+                        <button className=" red accent-4" onClick={()=>this.deleteProduct(this.state.id)}>Borrar</button>
+                        <button className=" blue accent-4" onClick={()=>this.toggle()}>Cancelar</button>
+                    </div>
+                </div> 
+                }
+                {/* <ul>
                     {this.state.toggle ?
                         this.listado() :
                         <div>Esta seguro que desea Borrar ? no se puede volver atras ...
@@ -97,8 +139,7 @@ class DeleteComponent extends Component {
                         <button className=" blue accent-4" onClick={()=>this.toggle()}>Cancelar</button>
                         </div>
                     }
-                
-                        </ul>
+                </ul> */}
             </div>
         )
     }
