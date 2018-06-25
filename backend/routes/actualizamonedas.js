@@ -21,22 +21,25 @@ var router = express();
 var router = express();
 console.log('estamos aca');
 
-router.put('/?:id', function(req, res, next) {
+router.post('/?:id', function(req, res, next) {
  indice = req.params.id;
+
+ descr = req.body.TipoMonedasDescripcion;
+ cotiz = req.body.TipoMonedasCotizacion;
+
+
    // conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
-    conexion.query('UPDATE TipoMonedas SET TipoMonedasDescripcion = ' + "ddddkdkd" + ' WHERE idTipoMonedas = "' + indice + '"',
+    conexion.query('UPDATE TipoMonedas SET TipoMonedasDescripcion = "' + descr + '", TipoMonedasCotizacion = '+ cotiz + ' WHERE idTipoMonedas = "' + indice + '"',
         function(err, result) {
             if (err) {
                 console.log(err);
             } else {
                 res.json(result);
-       
                 };
-              
-    
-
             });
         });
+
+
 
 
 module.exports = router;
