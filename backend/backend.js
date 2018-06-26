@@ -21,9 +21,10 @@ var actualizaprov = require('./routes/actualizaprov');
 var borraprov = require('./routes/borraprov');
 var buscaprov = require('./routes/buscaprov');
 var indextipoprov = require('./routes/indextipoprov');
-var indexmonedas = require('./routes/indexmonedas');
-var agregamonedas = require('./routes/agregamonedas');
-var actualizamonedas = require('./routes/actualizamonedas');
+var leermonedas = require('./routes/leermonedas');
+var agregarmonedas = require('./routes/agregarmonedas');
+var modificarmonedas = require('./routes/modificarmonedas');
+var borrarmonedas = require('./routes/borrarmonedas');
 // function agregada por el error CROS
 function perimitirCrossDomain(req, res, next) {
     //en vez de * se puede definir SÓLO los orígenes que permitimos
@@ -70,9 +71,10 @@ app.use('/actualizaprov', actualizaprov);
 app.use('/borraprov', borraprov);
 app.use('/buscaprov', buscaprov);
 app.use('/indextipoprov', indextipoprov);
-app.use('/indexmonedas', indexmonedas);
-app.use('/agregamonedas', agregamonedas);
-app.use('/actualizamonedas', actualizamonedas);
+app.use('/leermonedas', leermonedas);
+app.use('/agregarmonedas', agregarmonedas);
+app.use('/modificarmonedas', modificarmonedas);
+app.use('/borrarmonedas', borrarmonedas);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
