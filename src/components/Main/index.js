@@ -8,8 +8,8 @@ import About from './pages/About';
 import CreateComponent from './pages/CreateComponent'
 import ReadComponent from './pages/ReadComponent'
 import UpdateComponent from './pages/UpdateComponent'
-import DeleteComponent from './pages/DeleteComponent'
-
+//import DeleteComponent from './pages/DeleteComponent'
+import BorraMonedas from './pages/BorraMonedas'
 const Main = () => (
     <main>
         <div className="container">
@@ -20,7 +20,8 @@ const Main = () => (
             <Route path="/create" component={CreateComponent}/>
             <Route path="/read" component={ReadComponent}/>
             <Route path="/update" component={UpdateComponent}/>
-            <Route path="/delete" component={DeleteComponent}/>
+            {/* <Route path="/delete" component={DeleteComponent}/> */}
+            <Route path="/delete" component={BorraMonedas}/>
         </div>
     </main>
 )
