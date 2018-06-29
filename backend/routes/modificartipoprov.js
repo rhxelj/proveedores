@@ -24,12 +24,12 @@ console.log('estamos aca');
 router.post('/?:id', function(req, res, next) {
  indice = req.params.id;
 
- descr = req.body.TipoMonedasDescripcion;
- cotiz = req.body.TipoMonedasCotizacion;
+ descr = req.body.TipoProveedDesc;
+ 
 
 console.log('indice  ', indice);
    // conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
-    conexion.query('UPDATE TipoMonedas SET TipoMonedasDescripcion = "' + descr + '", TipoMonedasCotizacion = '+ cotiz + ' WHERE idTipoMonedas = "' + indice + '"',
+    conexion.query('UPDATE TipoProveed SET TipoProveedDesc = "' + descr + '" WHERE idTipoProveed = ' + indice ,
         function(err, result) {
             if (err) {
                 console.log(err);
