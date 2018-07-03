@@ -16,6 +16,7 @@ const Header = () => (
                     <li><Link to="/read">Read</Link></li>
                     <li><Link to="/update">Update</Link></li>
                     <li><Link to="/delete">Delete</Link></li>
+                    <li><Link to="/LeerMonedas">Leer Monedas</Link></li>
                 </ul>
                 </div>
                 </div>

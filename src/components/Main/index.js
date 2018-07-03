@@ -9,7 +9,10 @@ import CreateComponent from './pages/CreateComponent'
 import ReadComponent from './pages/ReadComponent'
 import UpdateComponent from './pages/UpdateComponent'
 //import DeleteComponent from './pages/DeleteComponent'
+
 import BorraMonedas from './pages/BorraMonedas'
+import LeerMonedas from './pages/LeerMonedas'
+
 const Main = () => (
     <main>
         <div className="container">
@@ -22,6 +25,9 @@ const Main = () => (
             <Route path="/update" component={UpdateComponent}/>
             {/* <Route path="/delete" component={DeleteComponent}/> */}
             <Route path="/delete" component={BorraMonedas}/>
+            <Route path="/LeerMonedas" component={LeerMonedas}/>
+            {/* <Route  component={About}/> para captar las rutas no definidas tengo que importar Switch */}
+
         </div>
     </main>
 )

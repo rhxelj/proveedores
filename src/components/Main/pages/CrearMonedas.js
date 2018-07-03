@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import request from 'superagent'
 
-class CreaMonedas extends Component {
+class CrearMonedas extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -101,4 +101,4 @@ class CreaMonedas extends Component {
     }
 }
 
-export default CreaMonedas
+export default CrearMonedas
