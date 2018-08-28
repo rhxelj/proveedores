@@ -14,29 +14,21 @@ conexion.connect(function(err) {
 
 
 
-var router = express();
-
-
 
 var router = express();
-console.log('estamos aca');
 
-router.post('/?:id', function(req, res, next) {
- indice = req.params.id;
-
- descr = req.body.TipoProveedDesc;
- 
-
-   // conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
-    conexion.query('UPDATE TipoProveed SET TipoProveedDesc = "' + descr + '" WHERE idTipoProveed = ' + indice ,
+router.get('/', function(req, res, next) {
+  
+    conexion.query('Select * from StkGrupo ' ,
         function(err, result) {
             if (err) {
                 console.log(err);
             } else {
                 res.json(result);
-                };
-            });
+            }
         });
+  
 
+});
 
 module.exports = router;

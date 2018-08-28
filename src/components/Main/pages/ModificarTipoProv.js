@@ -5,42 +5,40 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import { stringify } from 'querystring';
 
-class ModificarMonedas extends Component {
+class ModificarTipoProv extends Component {
     constructor(props){
         super(props)
         this.state = {
-            idTipoMonedas:'',
-            TipoMonedasDescripcion:'',
-            TipoMonedasCotizacion: 0,
-            monedas:[]
+            idTipoProveed:'',
+            TipoProveedDesc:'',
+            tipoprov:[]
         }
         this.renderEditable = this.renderEditable.bind(this)
     }    
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/leermonedas'; //'http://192.168.2.102:4000/indexprov'
+        const url = 'http://localhost:4000/leertipoprov'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')
             .then(res=> {
-            const monedas = JSON.parse(res.text)
-            this.setState({monedas: monedas})
+            const tipoprov = JSON.parse(res.text)
+            this.setState({tipoprov: tipoprov})
             })
     }
 
     //Update
     updateProduct = (params) => {
      
-      const  monedas  = params;
+      const  tipoprov  = params;
      
     request                  
-       .post('http://localhost:4000/modificarmonedas/'+monedas.idTipoMonedas)
+       .post('http://localhost:4000/modificartipoprov/'+tipoprov.idTipoProveed)
        .set('Content-Type', 'application/json')
        
-    //    .send({ idtipomonedas: this.state.idtipomonedas})
-       .send({ TipoMonedasDescripcion: params.TipoMonedasDescripcion})
-       .send({ TipoMonedasCotizacion: params.TipoMonedasCotizacion})
+    //    .send({ idtipotipoprov: this.state.idtipotipoprov})
+       .send({ TipoProveedDesc: params.TipoProveedDesc})
        .set('X-API-Key', 'foobar')
        .then(function(res) {
       // res.body, res.headers, res.status
@@ -60,46 +58,42 @@ class ModificarMonedas extends Component {
             contentEditable
             suppressContentEditableWarning
             onBlur={e => {
-              const monedas = [...this.state.monedas];
-              monedas[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-              this.setState({ monedas });
-              console.log('esto es  ', monedas);
+              const tipoprov = [...this.state.tipoprov];
+              tipoprov[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+              this.setState({ tipoprov });
+              
             //   console.log('cellInfo: '+  JSON.stringify(cellInfo))
             //   console.log(cellInfo.original)
               this.updateProduct(cellInfo.original)
             }}
             dangerouslySetInnerHTML={{
-              __html: this.state.monedas[cellInfo.index][cellInfo.column.id]
+              __html: this.state.tipoprov[cellInfo.index][cellInfo.column.id]
             }}
           />
         );
       }
 
     render(){
-        const monedas = this.state.monedas
+        const tipoprov = this.state.tipoprov
         return( 
             <div>
-                <h1>Actualiza Monedas</h1>
+                <h1>Actualiza Tipo Proveedor</h1>
                 <ReactTable
-                        data={monedas}
+                        data={tipoprov}
                         columns={[
                              {                   
                             columns: [
                                     {
                                     Header: "Código",
-                                    accessor: "idTipoMonedas"
+                                    accessor: "idTipoProveed"
                                     
                                     },
                                     {
                                     Header: "Denomiación",
-                                    accessor: "TipoMonedasDescripcion",
+                                    accessor: "TipoProveedDesc",
                                     Cell: this.renderEditable
                                     },
-                                    {
-                                    Header: "Cotización",
-                                    accessor: "TipoMonedasCotizacion",
-                                    Cell: this.renderEditable
-                                    },
+                                   
                                     
                             ]
                         }                
@@ -113,4 +107,4 @@ class ModificarMonedas extends Component {
     }
 }
 
-export default ModificarMonedas
+export default ModificarTipoProv

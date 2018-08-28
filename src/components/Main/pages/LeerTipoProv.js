@@ -4,25 +4,25 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
 
-class LeerMonedas extends Component {
+class LeerTipoProv extends Component {
     constructor(props){
         super(props)
         this.state = {
-            monedas:[]
+            tipoprov:[]
         }
     }    
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/leermonedas' ; //'http://localhost:3000/data'
+        const url = 'http://localhost:4000/leertipoprov' ; //'http://localhost:3000/data'
         request
         .get(url)
         .set('Content-Type', 'application/json')
             .then(res=> {
             // const products = JSON.parse(res.text)
             // this.setState({products: products})
-            const monedas = JSON.parse(res.text)
-            this.setState({monedas: monedas})
+            const tipoprov = JSON.parse(res.text)
+            this.setState({tipoprov: tipoprov})
             })
     }
     
@@ -32,44 +32,38 @@ class LeerMonedas extends Component {
     
     render(){
         // const products = this.state.products
-        const monedas = this.state.monedas
+        const tipoprov = this.state.tipoprov
         return( 
             <div>
                 <ul>
                     <ReactTable
                         // data={products}
-                        data={monedas}
+                        data={tipoprov}
                         columns={[
                              {                   
                                 columns: [
                                     {
                                     Header: "Código",
-                                    accessor: "idTipoMonedas"
+                                    accessor: "idTipoProveed"
                                     
                                     },
                                     {
                                     Header: "Denomiación",
-                                    accessor: "TipoMonedasDescripcion"
+                                    accessor: "TipoProveedDesc"
                          
                                     },
-                                    {
-                                    Header: "Cotización",
-                                    accessor: "TipoMonedasCotizacion"
-                                    },
-                                    
+                                                                      
                             ]
                         }                
                             
                         ]}
-                      /*   pivotBy={["ProveedoresDesc", "TipoProveedDesc"]}
-                        defaultPageSize={20}
-                        className="-striped -highlight" */
+                  
                     />
-                    {/* {listado}  */}
+                 
                 </ul>
             </div>
         )
     }
 }
 
-export default LeerMonedas
+export default LeerTipoProv

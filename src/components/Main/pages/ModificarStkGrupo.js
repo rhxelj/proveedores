@@ -5,42 +5,54 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import { stringify } from 'querystring';
 
-class ModificarMonedas extends Component {
+class ModificarStkGrupo extends Component {
     constructor(props){
         super(props)
         this.state = {
-            idTipoMonedas:'',
-            TipoMonedasDescripcion:'',
-            TipoMonedasCotizacion: 0,
-            monedas:[]
+            idStkGrupo:'',
+            StkGrupoDesc:'',
+            StkGrupoAbr:'',
+            StkGrupoContRubro:0,
+            stkgrupo:[]
+
+
+                       
+  
         }
         this.renderEditable = this.renderEditable.bind(this)
     }    
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/leermonedas'; //'http://192.168.2.102:4000/indexprov'
+        const url = 'http://192.168.2.102:4000/leerstkgrupo'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')
             .then(res=> {
-            const monedas = JSON.parse(res.text)
-            this.setState({monedas: monedas})
+            const stkgrupo = JSON.parse(res.text)
+            this.setState({stkgrupo: stkgrupo})
             })
     }
 
     //Update
     updateProduct = (params) => {
      
-      const  monedas  = params;
+      const  stkgrupo  = params;
      
     request                  
-       .post('http://localhost:4000/modificarmonedas/'+monedas.idTipoMonedas)
+       .post('http://localhost:4000/modificarstkgrupo/'+stkgrupo.idStkGrupo)
        .set('Content-Type', 'application/json')
-       
+         /*
+                idStkGrupo : req.body.idStkGrupo,
+    StkGrupoDesc : req.body.StkGrupoDesc,
+    StkGrupoAbr : req.body.StkGrupoAbr,
+    StkGrupoContRubro : req.body.StkGrupoContRubro
+    
+                */
     //    .send({ idtipomonedas: this.state.idtipomonedas})
-       .send({ TipoMonedasDescripcion: params.TipoMonedasDescripcion})
-       .send({ TipoMonedasCotizacion: params.TipoMonedasCotizacion})
+       .send({ StkGrupoDesc: params.StkGrupoDesc})
+       .send({ StkGrupoAbr: params.StkGrupoAbr})
+       .send({ StkGrupoContRubro: params.StkGrupoContRubro})
        .set('X-API-Key', 'foobar')
        .then(function(res) {
       // res.body, res.headers, res.status
@@ -60,44 +72,49 @@ class ModificarMonedas extends Component {
             contentEditable
             suppressContentEditableWarning
             onBlur={e => {
-              const monedas = [...this.state.monedas];
-              monedas[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-              this.setState({ monedas });
-              console.log('esto es  ', monedas);
+              const stkgrupo = [...this.state.stkgrupo];
+              stkgrupo[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+              this.setState({ stkgrupo });
+              console.log('esto es  ', stkgrupo);
             //   console.log('cellInfo: '+  JSON.stringify(cellInfo))
             //   console.log(cellInfo.original)
               this.updateProduct(cellInfo.original)
             }}
             dangerouslySetInnerHTML={{
-              __html: this.state.monedas[cellInfo.index][cellInfo.column.id]
+              __html: this.state.stkgrupo[cellInfo.index][cellInfo.column.id]
             }}
           />
         );
       }
 
     render(){
-        const monedas = this.state.monedas
+        const stkgrupo = this.state.stkgrupo
         return( 
             <div>
-                <h1>Actualiza Monedas</h1>
+                <h1>Actualiza Grupo Stock</h1>
                 <ReactTable
-                        data={monedas}
+                        data={stkgrupo}
                         columns={[
                              {                   
                             columns: [
                                     {
                                     Header: "Código",
-                                    accessor: "idTipoMonedas"
+                                    accessor: "idStkGrupo"
                                     
                                     },
                                     {
                                     Header: "Denomiación",
-                                    accessor: "TipoMonedasDescripcion",
+                                    accessor: "StkGrupoDesc",
                                     Cell: this.renderEditable
                                     },
                                     {
-                                    Header: "Cotización",
-                                    accessor: "TipoMonedasCotizacion",
+                                    Header: "Abreviatura",
+                                    accessor: "StkGrupoAbr",
+                                    Cell: this.renderEditable
+                                    },
+                                    {
+                                    Header: "Contador Rubro",
+                                    accessor: "StkGrupoContRubro",
                                     Cell: this.renderEditable
                                     },
                                     
@@ -113,4 +130,4 @@ class ModificarMonedas extends Component {
     }
 }
 
-export default ModificarMonedas
+export default ModificarStkGrupo

@@ -19,7 +19,7 @@ class UpdateComponent extends Component {
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/indexmonedas'; //'http://192.168.2.102:4000/indexprov'
+        const url = 'http://192.168.2.102:4000/leermonedas'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')
@@ -35,7 +35,7 @@ class UpdateComponent extends Component {
       const  monedas  = params;
      
     request                  
-       .post('http://localhost:4000/actualizamonedas/'+monedas.idTipoMonedas)
+       .post('http://localhost:4000/modificarmonedas/'+monedas.idTipoMonedas)
        .set('Content-Type', 'application/json')
        
     //    .send({ idtipomonedas: this.state.idtipomonedas})

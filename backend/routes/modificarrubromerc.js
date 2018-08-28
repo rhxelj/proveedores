@@ -19,16 +19,17 @@ var router = express();
 
 
 var router = express();
-console.log('estamos aca');
+
 
 router.post('/?:id', function(req, res, next) {
  indice = req.params.id;
 
- descr = req.body.TipoProveedDesc;
+ descr = req.body.RubroMercDesc;
  
 
+console.log('indice  ', indice);
    // conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
-    conexion.query('UPDATE TipoProveed SET TipoProveedDesc = "' + descr + '" WHERE idTipoProveed = ' + indice ,
+    conexion.query('UPDATE RubroMerc SET RubroMercDesc = "' + descr + '" WHERE idRubroMerc = ' + indice ,
         function(err, result) {
             if (err) {
                 console.log(err);

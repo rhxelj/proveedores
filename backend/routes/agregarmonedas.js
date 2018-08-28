@@ -15,31 +15,10 @@ conexion.connect(function(err) {
         console.log("no se conecto");
     }
 });
-/* var formulario = '<form method="post" action="/agregamonedas">' +
-    '<label for="idtipomonedas"> Tipo Moneda  </label>' +
-    '<input type="text" name="idtipomonedas" id="idtipomonedas"/><BR>' +
-    '<label for="tipomonedasdescripcion"> Descripción  </label>' +
-    '<input type="text" name="tipomonedasdescripcion" id="tipomonedasdescripcion"/><BR>' +
-    '<label for="tipomonedascotizacion"> Cotización  </label>' +
-  //  '<input type="number" step="any" name="tipomonedascotizacion" id="tipomonedascotizacion"/><BR>' +
-    '<input type="" name="tipomonedascotizacion" id="tipomonedascotizacion"/><BR>' +
-    '<input type="submit" value="Enviar"/>' +
-    '</form>';
-
-var cabecera = '<h1>Ingresa Tipos de Monedas </h1>';
-
-router.get('/', function(req, res, next) {
-    res.send('<html><body>' +
-        cabecera +
-        formulario +
-        '</html></body>'
-    );
-
-});
- */
 
 
-router.post('/', function(req, res) {
+
+router.post('/', function(req, res, next) {
 
   var registro = {
     idTipoMonedas : req.body.idTipoMonedas,
@@ -47,21 +26,34 @@ router.post('/', function(req, res) {
     TipoMonedasCotizacion : req.body.TipoMonedasCotizacion
 
   }
-    console.log(registro);
     var saludo = '';
 
 
 
         conexion.query('INSERT INTO TipoMonedas SET ?', registro, 
         function(err, result) {
-            if (err) {
-                console.log('ERROR ');
-                console.log(err);
+            if (err) 
+            {
+               if (err.errno == 1062) {
+                console.log('ERROR ' );
+                console.log(err.errno);
+              //  return res.status(409)
+                 return res.status(409).send({message : "error clave duplicada"});
+            }
+                else {
+                    
+                }
             } else {
                 res.json(result.rows);
             
             }
         });
+        // app.use( (req, res, next) => {
+        //     res.status(404);
+        //     res.json({
+        //       "error": "Error. Route not found"
+        //     }); 
+        // });
 });
 
 

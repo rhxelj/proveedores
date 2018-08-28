@@ -15,16 +15,41 @@ var muestra = require('./routes/muestra');
 var agregacol = require('./routes/agregacol');
 
 
-var indexprov = require('./routes/indexprov');
-var agregaprov = require('./routes/agregaprov');
-var actualizaprov = require('./routes/actualizaprov');
-var borraprov = require('./routes/borraprov');
-var buscaprov = require('./routes/buscaprov');
+var leerproveedor = require('./routes/leerproveedor');
+var agregarproveedor = require('./routes/agregarproveedor');
+// var actualizaprov = require('./routes/actualizaprov');
+var borrarproveedor = require('./routes/borrarproveedor');
+var modificarproveedor = require('./routes/modificarproveedor');
 var indextipoprov = require('./routes/indextipoprov');
+
+
 var leermonedas = require('./routes/leermonedas');
 var agregarmonedas = require('./routes/agregarmonedas');
 var modificarmonedas = require('./routes/modificarmonedas');
 var borrarmonedas = require('./routes/borrarmonedas');
+
+
+var leertipoprov = require('./routes/leertipoprov');
+var agregartipoprov = require('./routes/agregartipoprov');
+var modificartipoprov = require('./routes/modificartipoprov');
+var borrartipoprov = require('./routes/borrartipoprov');
+
+var leerrubromerc = require('./routes/leerrubromerc');
+var agregarrubromerc = require('./routes/agregarrubromerc');
+var modificarrubromerc = require('./routes/modificarrubromerc');
+var borrarrubromerc = require('./routes/borrarrubromerc');
+
+var leerstkgrupo = require('./routes/leerstkgrupo');
+var agregarstkgrupo = require('./routes/agregarstkgrupo');
+var modificarstkgrupo = require('./routes/modificarstkgrupo');
+var borrarstkgrupo = require('./routes/borrarstkgrupo');
+
+
+var leerstkrubro = require('./routes/leerstkrubro');
+var agregarstkrubro = require('./routes/agregarstkrubro');
+var modificarstkrubro = require('./routes/modificarstkrubro');
+var borrarstkrubro = require('./routes/borrarstkrubro');
+
 // function agregada por el error CROS
 function perimitirCrossDomain(req, res, next) {
     //en vez de * se puede definir SÓLO los orígenes que permitimos
@@ -65,16 +90,42 @@ app.use('/agregacol', agregacol);
 
 
 
-app.use('/indexprov', indexprov);
-app.use('/agregaprov', agregaprov);
-app.use('/actualizaprov', actualizaprov);
-app.use('/borraprov', borraprov);
-app.use('/buscaprov', buscaprov);
-app.use('/indextipoprov', indextipoprov);
+app.use('/leerproveedor', leerproveedor);
+app.use('/agregarproveedor', agregarproveedor);
+app.use('/modificarproveedor', modificarproveedor);
+app.use('/borrarproveedor', borrarproveedor);
+
+
+
+
 app.use('/leermonedas', leermonedas);
 app.use('/agregarmonedas', agregarmonedas);
 app.use('/modificarmonedas', modificarmonedas);
 app.use('/borrarmonedas', borrarmonedas);
+
+
+
+
+app.use('/leertipoprov', leertipoprov);
+app.use('/agregartipoprov', agregartipoprov);
+app.use('/modificartipoprov', modificartipoprov);
+app.use('/borrartipoprov', borrartipoprov);
+
+
+app.use('/leerrubromerc', leerrubromerc);
+app.use('/agregarrubromerc', agregarrubromerc);
+app.use('/modificarrubromerc', modificarrubromerc);
+app.use('/borrarrubromerc', borrarrubromerc);
+
+app.use('/leerstkgrupo', leerstkgrupo);
+app.use('/agregarstkgrupo', agregarstkgrupo);
+app.use('/modificarstkgrupo', modificarstkgrupo);
+app.use('/borrarstkgrupo', borrarstkgrupo);
+
+app.use('/leerstkrubro', leerstkrubro);
+app.use('/agregarstkrubro', agregarstkrubro);
+app.use('/modificarstkrubro', modificarstkrubro);
+app.use('/borrarstkrubro', borrarstkrubro);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

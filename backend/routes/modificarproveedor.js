@@ -15,8 +15,10 @@ conexion.connect(function(err) {
 });
 var router = express();
 
-console.log('jdjdjdjd');
+/* 
+
 router.get('/?:id', function(req, res, next) {
+    console.log('no anda');
     indice = req.params.id;
     conexion.query('Select * from Proveedores where idProveedores = ' + indice,
     function(err, result) {
@@ -28,39 +30,43 @@ router.get('/?:id', function(req, res, next) {
             var nombrepar = JSON.parse(nombreres);
             console.log(nombrepar[0]);
 }})});
-
-router.post('/', function(req, res) {
+ */
+router.post('/?:id', function(req, res) {
     //indice = req.params.id;
-    console.log('indice  ', indice);
-    var provdesc = req.query.provdesc || '';
-  
-    var provtipo =  req.query.provtipo || '';
-    
-    var provcuit = req.query.provcuit || '';
-    
-    var provcalle = req.query.provcalle || '';
-  
-    var provnrocalle = req.query.provnrocalle || '';
- 
-    var provpiso = req.query.provpiso || '';
+    indice = req.params.id;
+    console.log('provee id  ', indice);
    
-    var provdto = req.query.provdto || '';
-
-    var provcodpostal = req.query.provcodpostal || '';
-
-    var provlocalidad = req.query.provlocalidad || '';
+    var provdesc = req.body.ProveedoresDesc;
+  console.log('provee  ', provdesc);
+  console.log('provee  ', req.query.ProveedoresDesc);
+    var provtipo =  req.body.ProveedoresTipo;
+    
+    var provcuit = req.body.ProveedoresCUIT;
+    
+    var provcalle = req.body.ProveedoresCalle;
+  
+    var provnrocalle = req.body.ProveedoresNroCalle;
  
-    var provprovincia = req.query.provprovincia || '';
+    var provpiso = req.body. ProveedoresPiso;
+   
+    var provdto = req.body.ProveedoresDto;
 
-    var provtelefono = req.query.provtelefono || '';
+    var provcodpostal = req.body.ProveedoresCodPos;
 
-    var provcontacto = req.query.provcontacto || '';
+    var provlocalidad = req.body.ProveedoresLoc;
+ 
+    var provprovincia = req.body.ProveedoresPcia;
 
-    var provmail = req.query.provmail || '';
+    var provtelefono = req.body.ProveedoresTel;
 
-    var provpagweb = req.query.provpagweb || '';
+    var provcontacto = req.body.ProveedoresContacto;
 
-    var provcodmon = req.query.provcodmon || '';
+    var provmail = req.body.ProveedoresMail;
+
+    var provpagweb = req.body.ProveedoresWeb;
+
+    var provcodmon = "DLS";
+    // req.body.ProveedoresCodMon;
     
   conexion.query('update Proveedores set ProveedoresDesc = "' + provdesc + 
                                         '" , ProveedoresTipo = ' + provtipo + 
@@ -76,8 +82,7 @@ router.post('/', function(req, res) {
                                         '" , ProveedoresContacto = "' + provcontacto +
                                         '" , ProveedoresMail = "' + provmail +
                                         '" , ProveedoresWeb = "' + provpagweb +
-                                       '" , ProveedoresCodMon = "' + provcodmon + 
-                                        ' , ProveedoresCodMon = "' + provcodmon + 
+                                        '" , ProveedoresCodMon = "' + provcodmon + 
                                          '" where idProveedores = ' + indice, 
                                          function(err, result) {
                                             if (err) {

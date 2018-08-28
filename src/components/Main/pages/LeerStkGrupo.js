@@ -4,25 +4,25 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
 
-class LeerMonedas extends Component {
+class LeerStkGrupo extends Component {
     constructor(props){
         super(props)
         this.state = {
-            monedas:[]
+            stkgrupo:[]
         }
     }    
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/leermonedas' ; //'http://localhost:3000/data'
+        const url = 'http://192.168.2.102:4000/leerstkgrupo' ; //'http://localhost:3000/data'
         request
         .get(url)
         .set('Content-Type', 'application/json')
             .then(res=> {
             // const products = JSON.parse(res.text)
             // this.setState({products: products})
-            const monedas = JSON.parse(res.text)
-            this.setState({monedas: monedas})
+            const stkgrupo = JSON.parse(res.text)
+            this.setState({stkgrupo: stkgrupo})
             })
     }
     
@@ -32,30 +32,33 @@ class LeerMonedas extends Component {
     
     render(){
         // const products = this.state.products
-        const monedas = this.state.monedas
+        const stkgrupo = this.state.stkgrupo
         return( 
             <div>
                 <ul>
                     <ReactTable
                         // data={products}
-                        data={monedas}
+                        data={stkgrupo}
                         columns={[
                              {                   
                                 columns: [
                                     {
-                                    Header: "Código",
-                                    accessor: "idTipoMonedas"
-                                    
-                                    },
-                                    {
-                                    Header: "Denomiación",
-                                    accessor: "TipoMonedasDescripcion"
-                         
-                                    },
-                                    {
-                                    Header: "Cotización",
-                                    accessor: "TipoMonedasCotizacion"
-                                    },
+                                        Header: "Código",
+                                        accessor: "idStkGrupo"
+                                        
+                                        },
+                                        {
+                                        Header: "Denomiación",
+                                        accessor: "StkGrupoDesc",
+                                        },
+                                        {
+                                        Header: "Abreviatura",
+                                        accessor: "StkGrupoAbr",
+                                        },
+                                        {
+                                        Header: "Contador Rubro",
+                                        accessor: "StkGrupoContRubro",
+                                        },
                                     
                             ]
                         }                
@@ -72,4 +75,4 @@ class LeerMonedas extends Component {
     }
 }
 
-export default LeerMonedas
+export default LeerStkGrupo

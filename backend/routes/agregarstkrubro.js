@@ -10,7 +10,7 @@ moment.locale('es');
 //router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada en tipoprov");
+        console.log("base de datos conectada en stkrubro");
     } else {
         console.log("no se conecto");
     }
@@ -21,17 +21,23 @@ conexion.connect(function(err) {
 router.post('/', function(req, res) {
 
   var registro = {
-    idTipoProveed : req.body.idTipoProveed,
-    TipoProveedDesc : req.body.TipoProveedDesc,
+  //  idStkGrupo : req.body.idStkGrupo,
    
-
+    idStkRubro : req.body.idStkRubro,
+    StkRubroCodGrp : req.body.StkRubroCodGrp,
+    StkRubroDesc : req.body.StkRubroDesc,
+    StkRubroAbr : req.body.StkRubroAbr,
+    StkRubroProv : req.body.StkRubroProv,
+    StkRubroAncho : req.body.StkRubroAncho,
+    StkRubroPres : req.body.StkRubroPres,
+    StkRubroUM : req.body.StkRubroUM,
+    StkRubroCosto : req.body.StkRubroCosto,
+    StkRubroTM : req.body.StkRubroTM
+   
   }
-    console.log(registro);
-    var saludo = '';
+  console.log(registro);
 
-
-
-        conexion.query('INSERT INTO TipoProveed SET ?', registro, 
+        conexion.query('INSERT INTO StkRubro SET ?', registro, 
         function(err, result) {
             if (err) {
                 console.log('ERROR ');

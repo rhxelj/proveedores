@@ -5,34 +5,33 @@ var moment = require('moment');
 var conexion = require('./conexion');
 
 
-
-
 moment.locale('es');
 
 //router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada");
+        console.log("base de datos conectada en tipoprov");
     } else {
         console.log("no se conecto");
     }
 });
 
 
-console.log('esto es lo que hay');
 
 router.post('/', function(req, res) {
-    console.log('esto es lo que hay II');
+
   var registro = {
-    TipoProveedDesc : 'oye'
-    //req.body.tipoprovdesc,
+    idRubroMerc : req.body.idRubroMerc,
+    RubroMercDesc : req.body.RubroMercDesc,
+   
+
   }
     console.log(registro);
     var saludo = '';
 
 
 
-        conexion.query('INSERT INTO TipoProveed TipoProveedDesc VALUES ', registro, 
+        conexion.query('INSERT INTO RubroMerc SET ?', registro, 
         function(err, result) {
             if (err) {
                 console.log('ERROR ');
