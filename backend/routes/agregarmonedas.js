@@ -32,29 +32,28 @@ router.post('/', function(req, res, next) {
 
         conexion.query('INSERT INTO TipoMonedas SET ?', registro, 
         function(err, result) {
-            if (err) 
-            {
-               if (err.errno == 1062) {
-                console.log('ERROR ' );
-                console.log(err.errno);
-              //  return res.status(409)
-                 return res.status(409).send({message : "error clave duplicada"});
-            }
-                else {
-                    
+            if (err) {
+                if (err.errno == 1062) 
+                     {
+                         return res.status(409).send({message : "error clave duplicada"});
+                        }
+                  else 
+                  if (err.errno == 1406) 
+                     {
+                         return res.status(410).send({message : "error clave duplicada"});
+                        }
+                    {
+                        console.log (err.errno);
+                    }
                 }
-            } else {
-                res.json(result.rows);
+           
             
-            }
-        });
-        // app.use( (req, res, next) => {
-        //     res.status(404);
-        //     res.json({
-        //       "error": "Error. Route not found"
-        //     }); 
-        // });
+            else {
+                res.json(result.rows);
+        };
+    });
 });
+
 
 
 

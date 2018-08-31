@@ -17,7 +17,7 @@ class AgregarMonedas extends Component {
     
  // Create
     addProduct = _=> { 
-        const url = 'http://localhost:4000/agregarmonedas' 
+        const url = 'http://192.168.2.104:4000/agregarmonedas' 
         request
         .post(url)
         .set('Content-Type', 'application/json')
@@ -34,9 +34,19 @@ class AgregarMonedas extends Component {
                 alert('Agrego correctamente');
             })
         .catch(err => {
-            alert('alert 1 clave duplicada  ' + err.status )
-            // alert('alert 2   ' + err.response)
-            // alert('alert 3   ' + err.value)
+            if (err.status == 409) 
+                    {
+                    alert('Código de Moneda ya Cargado  ') 
+                    }
+                    else
+                    {
+                    if (err.status == 410) 
+                            {
+                            alert('Código de Moneda no puede tener más de 3 dígitos ') 
+                            }     
+            
+               else { 'Error nro :  ' + err.status}
+                        }
             })
              
 
@@ -75,7 +85,7 @@ class AgregarMonedas extends Component {
                 <div className="row">
                     <form className="col s12" onSubmit={this.submitPost}>
                         <div className="row">
-                            <div className="input-field col s12">
+                            <div className="input-field col s5">
                                 <input placeholder="Código" id="idTipoMonedas" type="text" value={this.state.idTipoMonedas} onChange={this.updateField} />
                             </div>
                             <div className="row">
