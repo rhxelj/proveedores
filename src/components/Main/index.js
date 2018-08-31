@@ -5,7 +5,8 @@ import { Route } from 'react-router-dom'
 import About from './pages/About';
 // import NewPost from './pages/NewPost';
 
-import CreateComponent from './pages/CreateComponent'
+import AgregarMonedas from './pages/AgregarMonedas'
+
 import ReadComponent from './pages/ReadComponent'
 import UpdateComponent from './pages/UpdateComponent'
 //import DeleteComponent from './pages/DeleteComponent'
@@ -20,7 +21,7 @@ const Main = () => (
             {/*<Route path="/posts/:_id" component={Post}/>
             <Route path="/new-post" component={NewPost}/> */}
             
-            <Route path="/create" component={CreateComponent}/>
+            <Route path="/AgregarMonedas" component={AgregarMonedas}/>
             <Route path="/read" component={ReadComponent}/>
             <Route path="/update" component={UpdateComponent}/>
             {/* <Route path="/delete" component={DeleteComponent}/> */}

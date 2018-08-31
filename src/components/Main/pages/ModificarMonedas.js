@@ -5,6 +5,8 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import { stringify } from 'querystring';
 
+import IpServidor from './VariablesDeEntorno'
+
 class ModificarMonedas extends Component {
     constructor(props){
         super(props)
@@ -19,7 +21,7 @@ class ModificarMonedas extends Component {
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/leermonedas'; //'http://192.168.2.102:4000/indexprov'
+        const url = IpServidor + '/leermonedas'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')

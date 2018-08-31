@@ -9,7 +9,8 @@ var path = require('path');
 
 
 
-var conString = "postgres://sandra:123456@localhost/stocks";
+// var conString = "postgres://sandra:123456@localhost/stocks";
+var conString = "mysql://root:MySQL!!!@localhost/stocks";//add by R063R
 var articulo = new pg.Client(conString);
 articulo.connect();
 
