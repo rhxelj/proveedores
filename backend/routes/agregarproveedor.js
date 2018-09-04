@@ -12,9 +12,9 @@ moment.locale('es');
 //router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada");
+        console.log("base de datos conectada en agregarproveedor");
     } else {
-        console.log("no se conecto");
+        console.log("no se conecto en agregarproveedor");
     }
 });
 var formulario = '<form method="post" action="/agregaprov">' +
@@ -62,7 +62,6 @@ router.get('/', function(req, res, next) {
 
 });
 
-console.log('esto es lo que hay en proveedores');
 
 router.post('/', function(req, res) {
  

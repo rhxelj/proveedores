@@ -1,18 +1,9 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var index = require('./routes/index');
-var articulos = require('./routes/articulos');
-var busca = require('./routes/busca');
-var agrega = require('./routes/agrega');
-var actualiza = require('./routes/actualiza');
-var borra = require('./routes/borra');
-var muestra = require('./routes/muestra');
-var agregacol = require('./routes/agregacol');
 
 
 var leerproveedor = require('./routes/leerproveedor');
@@ -28,7 +19,6 @@ var agregarmonedas = require('./routes/agregarmonedas');
 var modificarmonedas = require('./routes/modificarmonedas');
 var borrarmonedas = require('./routes/borrarmonedas');
 
-
 var leertipoprov = require('./routes/leertipoprov');
 var agregartipoprov = require('./routes/agregartipoprov');
 var modificartipoprov = require('./routes/modificartipoprov');
@@ -43,7 +33,6 @@ var leerstkgrupo = require('./routes/leerstkgrupo');
 var agregarstkgrupo = require('./routes/agregarstkgrupo');
 var modificarstkgrupo = require('./routes/modificarstkgrupo');
 var borrarstkgrupo = require('./routes/borrarstkgrupo');
-
 
 var leerstkrubro = require('./routes/leerstkrubro');
 var agregarstkrubro = require('./routes/agregarstkrubro');
@@ -76,29 +65,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(perimitirCrossDomain);
 
-app.use('/', index);
-app.use('/busca', busca);
-app.use('/agrega', agrega);
-app.use('/actualiza', actualiza);
-app.use('/borra', borra);
-app.use('/muestra', muestra);
-app.use('/api/articulos', articulos);
 
 
-app.use('/agregacol', agregacol);
-// catch 404 and forward to error handler
+app.use('/', leerproveedor);
 
-
-
-app.use('/leerproveedor', leerproveedor);
-app.use('/agregarproveedor', agregarproveedor);
-app.use('/modificarproveedor', modificarproveedor);
-app.use('/borrarproveedor', borrarproveedor);
+// app.use('/leerproveedor', leerproveedor);
+// app.use('/agregarproveedor', agregarproveedor);
+// app.use('/modificarproveedor', modificarproveedor);
+// app.use('/borrarproveedor', borrarproveedor);
 
 
 
 
-app.use('/leermonedas', leermonedas);
+ app.use('/leermonedas', leermonedas);
 app.use('/agregarmonedas', agregarmonedas);
 app.use('/modificarmonedas', modificarmonedas);
 app.use('/borrarmonedas', borrarmonedas);

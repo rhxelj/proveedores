@@ -9,6 +9,6 @@ var conexion = mysql.createConnection({
     database: 'BasesGenerales'
 });
 
-
+var ip = 'localhost';
 
 module.exports = conexion;
