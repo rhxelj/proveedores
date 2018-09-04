@@ -4,13 +4,12 @@ var path = require('path');
 var conexion = require('./conexion');
 //var mysql = require('mysql');
 
-console.log('esta 1');
 //var router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada");
+        console.log("base de datos conectada en modificarproveedor");
     } else {
-        console.log("no se conecto");
+        console.log("no se conecto en modificarproveedor");
     }
 });
 var router = express();
@@ -34,11 +33,9 @@ router.get('/?:id', function(req, res, next) {
 router.post('/?:id', function(req, res) {
     //indice = req.params.id;
     indice = req.params.id;
-    console.log('provee id  ', indice);
    
     var provdesc = req.body.ProveedoresDesc;
-  console.log('provee  ', provdesc);
-  console.log('provee  ', req.query.ProveedoresDesc);
+
     var provtipo =  req.body.ProveedoresTipo;
     
     var provcuit = req.body.ProveedoresCUIT;

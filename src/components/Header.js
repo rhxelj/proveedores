@@ -12,10 +12,9 @@ const Header = () => (
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     {/* <li><Link to="/">InHome</Link></li> */}
                     
-                    <li><Link to="/create">Create</Link></li>
-                    <li><Link to="/read">Read</Link></li>
-                    <li><Link to="/update">Update</Link></li>
-                    <li><Link to="/delete">Delete</Link></li>
+                    <li><Link to="/AgregarMonedas">Agregar Monedas</Link></li>
+                    <li><Link to="/ModificarMonedas">Modificar Monedas</Link></li>
+                    <li><Link to="/BorrarMonedas">Borrar Monedas</Link></li>
                     <li><Link to="/LeerMonedas">Leer Monedas</Link></li>
                 </ul>
                 </div>

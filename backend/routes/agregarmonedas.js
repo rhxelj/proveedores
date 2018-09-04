@@ -12,7 +12,7 @@ conexion.connect(function(err) {
     if (!err) {
         console.log("base de datos conectada en monedas");
     } else {
-        console.log("no se conecto");
+        console.log("no se conecto en monedas");
     }
 });
 
