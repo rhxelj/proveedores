@@ -16,7 +16,16 @@ import LeerMonedas from './pages/LeerMonedas'
 
 const Main = () => (
     <main>
-        <div className="container">
+        
+        {/* 
+            Para poder usar la opción que si no encuentra la ruta especificada tire un error. tengo que usar swicth como wrapper
+            de lo contrario el error se va a mostrar en todas las paginas 
+
+            <Route component={Error}/> 
+            uso esta ruta para cuando no coincide ninguna ruta (hay que hacer el componente Error)
+        */}
+        
+        <div className="container"> 
             <Route exact path="/" component={About}/>
             {/*<Route path="/posts/:_id" component={Post}/>
             <Route path="/new-post" component={NewPost}/> */}
@@ -28,7 +37,7 @@ const Main = () => (
             <Route path="/delete" component={BorraMonedas}/>
             <Route path="/LeerMonedas" component={LeerMonedas}/>
             {/* <Route  component={About}/> para captar las rutas no definidas tengo que importar Switch */}
-
+            
         </div>
     </main>
 )
