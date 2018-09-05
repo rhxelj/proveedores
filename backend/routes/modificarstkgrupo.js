@@ -31,7 +31,7 @@ router.post('/?:id', function(req, res, next) {
  
 console.log('indice  ', indice);
    // conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
-    conexion.query('UPDATE StkGrupo SET StkGrupoDesc = "' + descr + '", StkGrupoAbr = "' + abrev + '", StkGrupoContRubro = '+ contRubro + ' WHERE idStkGrupo = "' + indice + '"',
+    conexion.query('UPDATE StkGrupo SET StkGrupoDesc = "' + descr + '", StkGrupoAbr = "' + abrev + '", StkGrupoContRubro = '+ contRubro + ' WHERE idStkGrupo = ' + indice ,
         function(err, result) {
             if (err) {
                 console.log(err);

@@ -7,9 +7,9 @@ var mysql = require('mysql');
 var router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada");
+        console.log("base de datos conectada en stkgrupo");
     } else {
-        console.log("no se conecto");
+        console.log("no se conecto en stkgrupo");
     }
 });
 
