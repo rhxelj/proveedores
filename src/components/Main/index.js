@@ -1,20 +1,20 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+
 // import Posts from './pages/Posts';
 // import Post from './pages/Post';
-import About from './pages/About';
+// import About from './pages/About';
 // import NewPost from './pages/NewPost';
-
 // import AgregarMonedas from './pages/AgregarMonedas'
-
-import ReadComponent from './pages/ReadComponent'
-import UpdateComponent from './pages/UpdateComponent'
+// import ReadComponent from './pages/ReadComponent'
+// import UpdateComponent from './pages/UpdateComponent'
 //import DeleteComponent from './pages/DeleteComponent'
 
-import BorrarMonedas from './pages/BorrarMonedas'
-import LeerMonedas from './pages/LeerMonedas'
+import Monedas from './pages/Monedas'
 import AgregarMonedas from './pages/AgregarMonedas'
+import BorrarMonedas from './pages/BorrarMonedas'
 import ModificarMonedas from './pages/ModificarMonedas'
+import LeerMonedas from './pages/LeerMonedas'
 
 const Main = () => (
     <main>
@@ -28,18 +28,13 @@ const Main = () => (
         */}
         
         <div className="container"> 
-            <Route exact path="/" component={About}/>
-            {/*<Route path="/posts/:_id" component={Post}/>
-            <Route path="/new-post" component={NewPost}/> */}
-            
+            <Route exact path="/" component={LeerMonedas}/>
+            <Route path="/Monedas" component={Monedas}/>
             <Route path="/AgregarMonedas" component={AgregarMonedas}/>
-            {/* <Route path="/read" component={LeerMonedas}/> */}
-            <Route path="/ModificarMonedas" component={ModificarMonedas}/>
-            {/* <Route path="/delete" component={DeleteComponent}/> */}
             <Route path="/BorrarMonedas" component={BorrarMonedas}/>
+            <Route path="/ModificarMonedas" component={ModificarMonedas}/>
             <Route path="/LeerMonedas" component={LeerMonedas}/>
             {/* <Route  component={About}/> para captar las rutas no definidas tengo que importar Switch */}
-            
         </div>
     </main>
 )

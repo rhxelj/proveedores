@@ -8,21 +8,21 @@ const Header = () => (
         <nav className="blue">
             <div  className="container">    
                 <div className="nav-wrapper">
-                <Link to="/" className="brand-logo">Proveedores APP</Link>
+                <Link to="/" className="brand-logo">STOCK APP</Link>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    {/* <li><Link to="/">InHome</Link></li> */}
-                    
+                    <li><Link to="/Monedas">Monedas</Link></li>
                     <li><Link to="/AgregarMonedas">Agregar Monedas</Link></li>
-                    <li><Link to="/ModificarMonedas">Modificar Monedas</Link></li>
                     <li><Link to="/BorrarMonedas">Borrar Monedas</Link></li>
+                    <li><Link to="/ModificarMonedas">Modificar Monedas</Link></li>
                     <li><Link to="/LeerMonedas">Leer Monedas</Link></li>
                 </ul>
                 </div>
                 </div>
         </nav>
        
+{/* boton flotante */}
 
-<div className="fixed-action-btn">
+ {/* <div className="fixed-action-btn">
   <a className="btn-floating btn-large red">
     <i className="large material-icons">mode_edit</i>
   </a>
@@ -32,7 +32,7 @@ const Header = () => (
     <li><a className="btn-floating green"><i className="material-icons">publish</i></a></li>
     <li><a className="btn-floating blue"><i className="material-icons">attach_file</i></a></li>
   </ul>
-</div>
+</div> */}
 
       
  

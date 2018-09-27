@@ -56,14 +56,38 @@ class LeerMonedas extends Component {
                                     Header: "Cotización",
                                     accessor: "TipoMonedasCotizacion"
                                     },
+                                   
+                                    
                                     
                             ]
                         }                
                             
                         ]}
-                      /*   pivotBy={["ProveedoresDesc", "TipoProveedDesc"]}
-                        defaultPageSize={20}
-                        className="-striped -highlight" */
+
+
+                        getTdProps={(state, rowInfo, column, instance) => {
+                            return {
+                              onClick: (e, handleOriginal)  =>
+                                console.log("Cell - onMouse Click", {
+                                  state,
+                                  rowInfo,
+                                  column,
+                                  instance,
+                                  event: e
+                                },
+                                alert("entro en modo edicion"),
+                                console.log(
+                                    "Contenido de rowInfo : " + rowInfo.original.TipoMonedasDescripcion),
+                                    console.log("indice = "+rowInfo.index)
+                                )
+                                
+                               
+                            };
+                          }}
+
+                        // pivotBy={["TipoMonedasDescripcion", "TipoMonedasCotizacion"]}
+                        // defaultPageSize={20}
+                        // className="-striped -highlight" 
                     />
                     {/* {listado}  */}
                 </ul>

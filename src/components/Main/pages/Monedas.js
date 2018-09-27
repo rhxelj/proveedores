@@ -1,22 +1,24 @@
-
 import React, { Component} from 'react'
 import request from 'superagent'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
-// import { stringify } from 'querystring';
+
+import AgregarMonedas from './AgregarMonedas'
 
 import IpServidor from './VariablesDeEntorno'
 
-class ModificarMonedas extends Component {
+class Monedas extends Component {
     constructor(props){
         super(props)
         this.state = {
+            toggle: false,
             idTipoMonedas:'',
             TipoMonedasDescripcion:'',
             TipoMonedasCotizacion: 0,
             monedas:[]
         }
         this.renderEditable = this.renderEditable.bind(this)
+        this.toggle = this.toggle.bind(this);
     }    
     
     //Read
@@ -51,7 +53,28 @@ class ModificarMonedas extends Component {
         //this.getproveedores();
      }
     
-    componentDidMount(){
+     deleteProduct = (id)=> {
+        
+        //       const { moneda } = this.state;
+               request
+                 .delete('http://localhost:4000/borrarmonedas/'+id)
+                 .set('Content-Type', 'application/json')
+                 //.set('X-API-Key', 'foobar')
+                 .then(function(res) {
+               // res.body, res.headers, res.status
+                 })
+                 //alert("Borrado")
+                //  this.toggle()
+                 this.read()
+             }
+    
+    toggle(event){
+        this.setState(prevState => ({
+        toggle: !prevState.toggle
+        }))
+    }
+    
+     componentDidMount(){
         this.read()
     }
     
@@ -64,7 +87,7 @@ class ModificarMonedas extends Component {
             onBlur={e => {
               const monedas = [...this.state.monedas]
               monedas[cellInfo.index][cellInfo.column.id] = e.target.innerHTML
-               this.setState({ monedas })
+              this.setState({ monedas })
               this.ActualizaMoneda(cellInfo.original)
             }}
             dangerouslySetInnerHTML={{
@@ -75,10 +98,35 @@ class ModificarMonedas extends Component {
       }
 
     render(){
-        const monedas = this.state.monedas
+        // const monedas = this.state.monedas
+        // const monedas = this.state.monedas.map( (rowData) =>
+        const monedas = this.state.monedas.map( (rowData,index) => 
+        // console.log("Contenido de RawData " +JSON.stringify(rowData)) 
+        // Object.assign(rowData, { borrar: <button className=" red accent-4" onClick={()=>this.deleteProduct(rowData.idTipoMonedas)}>Borrar</button> })
+        Object.assign(rowData, { borrar: <button className=" red accent-4" onClick={()=>this.deleteProduct(rowData.idTipoMonedas)}>Borrar</button> })
+        );
         return( 
             <div>
-                <h1>Actualiza Monedas</h1>
+                <h1>ABM DE Monedas</h1>
+                
+                
+                {this.state.toggle
+                ?
+                <div>
+                    <div className="row">
+                        <div className="col s12 ">
+                            <div className="">
+                                <div className="card-content  white-text">
+                                    <AgregarMonedas click={()=>this.toggle()}> </AgregarMonedas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                :
+                <p onClick={()=>this.toggle()} className='btn'>AGREGAR monedas</p>
+                }
+               
                 <ReactTable
                         data={monedas}
                         columns={[
@@ -99,6 +147,12 @@ class ModificarMonedas extends Component {
                                     accessor: "TipoMonedasCotizacion",
                                     Cell: this.renderEditable
                                     },
+                                    {
+                                        Header: "",
+                                        accessor: "borrar",
+                                        // Cell: this.renderEditable
+                                    }
+                                        
                                     
                             ]
                         }                
@@ -112,4 +166,4 @@ class ModificarMonedas extends Component {
     }
 }
 
-export default ModificarMonedas
+export default Monedas
