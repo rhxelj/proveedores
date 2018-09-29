@@ -63,6 +63,12 @@ class Monedas extends Component {
                  .then(function(res) {
                // res.body, res.headers, res.status
                  })
+                 .catch(err => {
+                    if (err.status === 411) 
+                            {
+                            alert('Código de Moneda Usado no se puede borrar  ') 
+                            }
+                        })
                  //alert("Borrado")
                 //  this.toggle()
                  this.read()

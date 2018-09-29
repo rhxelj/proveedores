@@ -21,8 +21,15 @@ router.delete('/?:id', function(req, res, next) {
   conexion.query('delete from TipoMonedas where idTipoMonedas = "' + indice + '"', 
                                          function(err, result) {
                                             if (err) {
+                                                if (err.errno == 1451) 
+                                                    {
+                                                      return res.status(411).send({message : "error Código de moneda usado"});
+                                                     }
+                                                  {
                                                 console.log(err);
-                                            } else {
+                                                  }
+                                            } 
+                                            else {
                                                 res.json(result.rows);
                                             }
                                         }); 
