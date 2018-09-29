@@ -22,14 +22,16 @@ var router = express();
 console.log('estamos aca');
 
 router.post('/?:id', function(req, res, next) {
- indice = req.params.id;
+let indice = " ";
+    indice = req.params.id;
 
  descr = req.body.TipoMonedasDescripcion;
  cotiz = req.body.TipoMonedasCotizacion;
 
 console.log('indice  ', indice);
-   // conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
-    conexion.query('UPDATE TipoMonedas SET TipoMonedasDescripcion = "' + descr + '", TipoMonedasCotizacion = '+ cotiz + ' WHERE idTipoMonedas = "' + indice + '"',
+// conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
+   conexion.query ('UPDATE TipoMonedas SET TipoMonedasDescripcion = "' + descr + '", TipoMonedasCotizacion = ' + cotiz + ' WHERE idTipoMonedas = "' + indice + '"',
+
         function(err, result) {
             if (err) {
                 console.log(err);
