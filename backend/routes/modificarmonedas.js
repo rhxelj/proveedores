@@ -23,13 +23,11 @@ console.log('estamos aca');
 
 router.post('/?:id', function(req, res, next) {
 let indice = " ";
-    indice = req.params.id;
+indice = req.params.id;
 
  descr = req.body.TipoMonedasDescripcion;
  cotiz = req.body.TipoMonedasCotizacion;
 
-console.log('indice  ', indice);
-// conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
    conexion.query ('UPDATE TipoMonedas SET TipoMonedasDescripcion = "' + descr + '", TipoMonedasCotizacion = ' + cotiz + ' WHERE idTipoMonedas = "' + indice + '"',
 
         function(err, result) {
