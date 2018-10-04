@@ -32,9 +32,14 @@ router.post('/', function(req, res, next) {
         conexion.query('INSERT INTO StkGrupo SET ?', registro, 
         function(err, result) {
             if (err) {
-                console.log('ERROR ');
-                console.log(err);
-            } else {
+                if (err.errno == 1062) {
+                    return res.status(409).send({message : "error clave duplicada"});
+                      }
+                      else {
+                          console.log('ERROR ' );
+                          console.log(err.errno);
+                          }
+                } else {
                 res.json(result.rows);
             }
         });
