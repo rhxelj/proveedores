@@ -4,6 +4,7 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
 import AgregarMonedas from './AgregarMonedas'
+import BorrarMonedas from './BorrarMonedas'
 
 import IpServidor from './VariablesDeEntorno'
 
@@ -19,6 +20,7 @@ class Monedas extends Component {
         }
         this.renderEditable = this.renderEditable.bind(this)
         this.toggle = this.toggle.bind(this);
+        this.funcionTest = this.funcionTest.bind(this);
     }    
     
     //Read
@@ -103,16 +105,27 @@ class Monedas extends Component {
         )
       }
 
+
+      funcionTest(){ 
+        alert('ggggg')
+        
+      }
+
     render(){
-        // const monedas = this.state.monedas
-        // const monedas = this.state.monedas.map( (rowData) =>
         const monedas = this.state.monedas.map( (rowData,index) => 
-        // console.log("Contenido de RawData " +JSON.stringify(rowData)) 
         // Object.assign(rowData, { borrar: <button className=" red accent-4" onClick={()=>this.deleteProduct(rowData.idTipoMonedas)}>Borrar</button> })
-        Object.assign(rowData, { borrar: <button className=" red accent-4" onClick={()=>this.deleteProduct(rowData.idTipoMonedas)}>Borrar</button> })
+        Object.assign(rowData, { borrar: 
+            <div className="center-align"><BorrarMonedas idMonedas={rowData.idTipoMonedas}></BorrarMonedas></div>})
+            // <button 
+            //     className=" red accent-4" 
+            //     onClick={this.funcionTest}
+            //     >
+            //     Borrar
+            // </button> })
         );
         return( 
             <div>
+                {/* <BorrarMonedas ></BorrarMonedas> */}
                 <h1>ABM DE Monedas</h1>
                 
                 

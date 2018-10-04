@@ -1,7 +1,7 @@
 // const spawn = require('child_process').spawn;
 const gulp        = require('gulp');
 const browserSync = require('browser-sync').create();
-const nodemon = require('gulp-nodemon');
+const nodemon    = require('gulp-nodemon');
 
   gulp.task('browser-sync', function() {
       browserSync.init({
