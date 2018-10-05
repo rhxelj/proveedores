@@ -39,7 +39,7 @@ class BorrarMonedas extends Component {
 
     // //Delete
       deleteProduct = (id)=> {
-        alert("Borrado")
+       
  //       const { moneda } = this.state;
         request
           .delete('http://localhost:4000/borrarmonedas/'+id)
@@ -50,7 +50,7 @@ class BorrarMonedas extends Component {
           })
          
           .catch(err => {
-            if (err.status === 500) 
+            if (err.status === 411) 
                     {
                     alert('Código de Moneda Usado no se puede borrar  ') 
                     }
