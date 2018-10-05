@@ -40,7 +40,7 @@ router.post('/', function(req, res, next) {
                   else 
                   if (err.errno == 1406) 
                      {
-                         return res.status(410).send({message : "error clave duplicada"});
+                         return res.status(410).send({message : "Código con más de tres letras"});
                         }
                     {
                         console.log (err.errno);

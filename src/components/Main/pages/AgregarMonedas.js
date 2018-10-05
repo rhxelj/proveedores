@@ -35,7 +35,7 @@ class AgregarMonedas extends Component {
         .catch(err => {
             if (err.status === 409) 
                     {
-                    alert('Código de Moneda ya Cargado  ') 
+                    alert('Código de Moneda EXISTENTE  ') 
                     }
                     else
                     {
@@ -58,7 +58,7 @@ class AgregarMonedas extends Component {
     submitMoneda(e){
         e.preventDefault()
         this.addMoneda()
-        this.props.click()
+      //  this.props.click()
     }
 
     componentDidMount(){
