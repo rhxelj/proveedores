@@ -92,8 +92,12 @@ class ModificarMonedas extends Component {
                                     {
                                     Header: "Denomiación",
                                     accessor: "TipoMonedasDescripcion",
-                                    Cell: this.renderEditable
+                                    Cell: this.renderEditable,
+                                    resizable: true,
+                                    sortable: true,
+                                    filterable: true
                                     },
+                                    
                                     {
                                     Header: "Cotización",
                                     accessor: "TipoMonedasCotizacion",
