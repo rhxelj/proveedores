@@ -32,8 +32,20 @@ indice = req.params.id;
 
         function(err, result) {
             if (err) {
-                console.log(err);
-            } else {
+                if (err.errno == 1264) 
+                    {
+                    return res.status(412).send({message : "El campo numérico más dígitos de los que corresponde"});
+                    }
+                else {
+                    if (err.errno == 1406) 
+                        {
+                        return res.status(410).send({message : "El campo alfanumérico dígitos de los que corresponde"});
+                        }
+                    else
+                    console.log(err);
+                }
+            }
+            else {
                 res.json(result);
                 };
             });

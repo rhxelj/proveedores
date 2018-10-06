@@ -41,7 +41,7 @@ class AgregarMonedas extends Component {
                     {
                     if (err.status === 410) 
                             {
-                            alert('Código de Moneda no puede tener más de 3 dígitos ') 
+                            alert('Código de Moneda no puede tener más de 4 dígitos ') 
                             }     
                else { console.log('Error nro :  ' + err.status)}
                         }
