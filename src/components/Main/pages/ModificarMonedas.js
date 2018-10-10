@@ -46,10 +46,25 @@ class ModificarMonedas extends Component {
        .set('X-API-Key', 'foobar')
        .then(function(res) {
       // res.body, res.headers, res.status
-        });
-       
+        })
+        .catch(err => {
+                if (err.status === 412) 
+                        {
+                        alert('El campo Cotización tiene más dígitos de los que corresponde ') 
+                        }     
+                else {
+                    if (err.status === 410) 
+                    {
+                    alert('El campo Descripción tiene más dígitos de los que corresponde ') 
+                    }  
+                    else { console.log('Error nro :  ' + err.status)}
+                }
+              
+                      
+            
         //this.getproveedores();
-     }
+     })
+    }
     
     componentDidMount(){
         this.read()
@@ -92,8 +107,12 @@ class ModificarMonedas extends Component {
                                     {
                                     Header: "Denomiación",
                                     accessor: "TipoMonedasDescripcion",
-                                    Cell: this.renderEditable
+                                    Cell: this.renderEditable,
+                                    resizable: true,
+                                    sortable: true,
+                                    filterable: true
                                     },
+                                    
                                     {
                                     Header: "Cotización",
                                     accessor: "TipoMonedasCotizacion",

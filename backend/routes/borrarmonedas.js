@@ -16,14 +16,13 @@ conexion.connect(function(err) {
 
 router.delete('/?:id', function(req, res, next) {
     indice = req.params.id;
-//DELETE FROM `BasesGenerales`.`TipoMonedas` WHERE `idTipoMonedas`='ee';
 
   conexion.query('delete from TipoMonedas where idTipoMonedas = "' + indice + '"', 
                                          function(err, result) {
                                             if (err) {
                                                 if (err.errno == 1451) 
                                                     {
-                                                      return res.status(411).send({message : "error Código de moneda usado"});
+                                                      return res.status(411).send({message : "error Código de moneda usado en otra tabla"});
                                                      }
                                                   {
                                                 console.log(err);

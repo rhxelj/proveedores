@@ -9,7 +9,6 @@ import { Route } from 'react-router-dom'
 // import ReadComponent from './pages/ReadComponent'
 // import UpdateComponent from './pages/UpdateComponent'
 //import DeleteComponent from './pages/DeleteComponent'
-
 import Monedas from './pages/Monedas'
 import AgregarMonedas from './pages/AgregarMonedas'
 import BorrarMonedas from './pages/BorrarMonedas'

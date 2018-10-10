@@ -39,7 +39,7 @@ class BorrarMonedas extends Component {
 
     // //Delete
       deleteProduct = (id)=> {
-        
+       
  //       const { moneda } = this.state;
         request
           .delete('http://localhost:4000/borrarmonedas/'+id)
@@ -48,9 +48,16 @@ class BorrarMonedas extends Component {
           .then(function(res) {
         // res.body, res.headers, res.status
           })
-          //alert("Borrado")
+         
+          .catch(err => {
+            if (err.status === 411) 
+                    {
+                    alert('Código de Moneda Usado no se puede borrar  ') 
+                    }
+                })
           this.toggle()
-        //   this.read()
+          this.read()
+        
       }
     
     // listado = _=>{

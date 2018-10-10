@@ -35,13 +35,13 @@ class AgregarMonedas extends Component {
         .catch(err => {
             if (err.status === 409) 
                     {
-                    alert('Código de Moneda ya Cargado  ') 
+                    alert('Código de Moneda EXISTENTE  ') 
                     }
                     else
                     {
                     if (err.status === 410) 
                             {
-                            alert('Código de Moneda no puede tener más de 3 dígitos ') 
+                            alert('Código de Moneda no puede tener más de 4 dígitos ') 
                             }     
                else { console.log('Error nro :  ' + err.status)}
                         }
@@ -58,7 +58,7 @@ class AgregarMonedas extends Component {
     submitMoneda(e){
         e.preventDefault()
         this.addMoneda()
-        this.props.click()
+      //  this.props.click()
     }
 
     componentDidMount(){
