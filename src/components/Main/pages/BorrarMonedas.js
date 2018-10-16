@@ -55,8 +55,9 @@ class BorrarMonedas extends Component {
                     alert('Código de Moneda Usado no se puede borrar  ') 
                     }
                 })
-          this.toggle()
-          this.props.read()
+                this.props.read()
+                this.toggle()
+          
         
       }
     
