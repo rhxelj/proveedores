@@ -82,7 +82,10 @@ class Monedas extends Component {
         }))
     }
     
-     componentDidMount(){
+    componentWillUnmount(){
+        this.read()
+    }
+    componentDidMount(){
         this.read()
     }
     
@@ -115,7 +118,7 @@ class Monedas extends Component {
         const monedas = this.state.monedas.map( (rowData,index) => 
         // Object.assign(rowData, { borrar: <button className=" red accent-4" onClick={()=>this.deleteProduct(rowData.idTipoMonedas)}>Borrar</button> })
         Object.assign(rowData, { borrar: 
-            <div className="center-align"><BorrarMonedas idMonedas={rowData.idTipoMonedas}></BorrarMonedas></div>})
+            <div className="center-align"><BorrarMonedas idMonedas={rowData.idTipoMonedas} read={()=>this.read()}></BorrarMonedas></div>})
             // <button 
             //     className=" red accent-4" 
             //     onClick={this.funcionTest}
@@ -136,7 +139,7 @@ class Monedas extends Component {
                         <div className="col s12 ">
                             <div className="">
                                 <div className="card-content  white-text">
-                                    <AgregarMonedas click={()=>this.toggle()}> </AgregarMonedas>
+                                    <AgregarMonedas click={()=>this.toggle()} read={()=>this.read()}> </AgregarMonedas>
                                 </div>
                             </div>
                         </div>
@@ -148,11 +151,21 @@ class Monedas extends Component {
                
                 <ReactTable
                         data={monedas}
+
+                        filterable
+                        defaultSorted={[
+                            {
+                                id: "codigo",
+                                desc: true
+                            }
+                        ]}
+
                         columns={[
                              {                   
                             columns: [
                                     {
                                     Header: "Código",
+                                    id:"codigo",
                                     accessor: "idTipoMonedas"
                                     
                                     },
