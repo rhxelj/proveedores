@@ -58,7 +58,8 @@ class AgregarMonedas extends Component {
     submitMoneda(e){
         e.preventDefault()
         this.addMoneda()
-      //  this.props.click()
+       this.props.read()
+       this.props.click()
     }
 
     componentDidMount(){

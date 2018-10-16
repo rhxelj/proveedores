@@ -56,7 +56,7 @@ class BorrarMonedas extends Component {
                     }
                 })
           this.toggle()
-          this.read()
+          this.props.read()
         
       }
     

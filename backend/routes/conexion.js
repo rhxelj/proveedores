@@ -4,7 +4,7 @@ var express = require('express');
 
 var conexion = mysql.createConnection({
     user: 'root',
-    password: 'drasan',
+    password: 'MySQL!!!',
     host: 'localhost',
     database: 'BasesGenerales'
 });
@@ -12,3 +12,5 @@ var conexion = mysql.createConnection({
 var ip = 'localhost';
 
 module.exports = conexion;
+
+// ignorado
