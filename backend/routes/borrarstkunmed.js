@@ -7,9 +7,9 @@ var mysql = require('mysql');
 var router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada");
+        console.log("base de datos conectada StkUnMed");
     } else {
-        console.log("no se conecto");
+        console.log("no se conecto en StkUnMed");
     }
 });
 
@@ -17,12 +17,12 @@ conexion.connect(function(err) {
 router.delete('/?:id', function(req, res, next) {
     indice = req.params.id;
 
-  conexion.query('delete from StkMonedas where idStkMonedas = "' + indice + '"', 
+  conexion.query('delete from StkUnMed where idStkUnMed = "' + indice + '"', 
                                          function(err, result) {
                                             if (err) {
                                                 if (err.errno == 1451) 
                                                     {
-                                                      return res.status(411).send({message : "error Código de moneda usado en otra tabla"});
+                                                      return res.status(411).send({message : "error Código de Unidad de Medida usado en otra tabla"});
                                                      }
                                                   {
                                                 console.log(err);

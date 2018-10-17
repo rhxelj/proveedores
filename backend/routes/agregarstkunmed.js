@@ -10,9 +10,9 @@ moment.locale('es');
 //router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada en monedas");
+        console.log("base de datos conectada en StkUnMed");
     } else {
-        console.log("no se conecto en monedas");
+        console.log("no se conecto en StkUnMed");
     }
 });
 
@@ -21,16 +21,15 @@ conexion.connect(function(err) {
 router.post('/', function(req, res, next) {
 
   var registro = {
-    idStkMonedas  : req.body.idStkMonedas ,
-    StkMonedasDescripcion : req.body.StkMonedasDescripcion,
-    StkMonedasCotizacion : req.body.StkMonedasCotizacion
+    idStkUnMed : req.body.idStkUnMed,
+    StkUnMedDesc : req.body.StkUnMedDesc
 
   }
     var saludo = '';
 
 
 
-        conexion.query('INSERT INTO StkMonedas SET ?', registro, 
+        conexion.query('INSERT INTO StkUnMed SET ?', registro, 
         function(err, result) {
             if (err) {
                 if (err.errno == 1062) 
@@ -40,7 +39,7 @@ router.post('/', function(req, res, next) {
                   else 
                   if (err.errno == 1406 || err.errno == 1264) 
                      {
-                         return res.status(410).send({message : "Código con más de cuatro letras"});
+                         return res.status(410).send({message : "Código con más de tres letras"});
                         }
                     {
                         console.log (err.errno);

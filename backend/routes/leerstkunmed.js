@@ -5,9 +5,9 @@ var conexion = require('./conexion');
 
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada leermonedas");
+        console.log("base de datos conectada StkUnMed");
     } else {
-        console.log("no se conecto leermonedas");
+        console.log("no se conecto StkUnMed");
     }
 });
 
@@ -20,7 +20,7 @@ var router = express();
 
 router.get('/', function(req, res, next) {
   
-    conexion.query('Select * from StkMonedas ' ,
+    conexion.query('Select * from StkUnMed ' ,
         function(err, result) {
             if (err) {
                 console.log(err);

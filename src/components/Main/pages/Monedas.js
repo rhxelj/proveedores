@@ -13,9 +13,9 @@ class Monedas extends Component {
         super(props)
         this.state = {
             toggle: false,
-            idTipoMonedas:'',
-            TipoMonedasDescripcion:'',
-            TipoMonedasCotizacion: 0,
+            idStkMonedas:'',
+            StkMonedasDescripcion:'',
+            StkMonedasCotizacion: 0,
             monedas:[]
         }
         this.renderEditable = this.renderEditable.bind(this)
@@ -41,12 +41,12 @@ class Monedas extends Component {
       const  monedas  = params;
      
     request                  
-       .post('http://localhost:4000/modificarmonedas/'+monedas.idTipoMonedas)
+       .post('http://localhost:4000/modificarmonedas/'+monedas.idStkMonedas)
        .set('Content-Type', 'application/json')
        
     //    .send({ idtipomonedas: this.state.idtipomonedas})
-       .send({ TipoMonedasDescripcion: params.TipoMonedasDescripcion})
-       .send({ TipoMonedasCotizacion: params.TipoMonedasCotizacion})
+       .send({ StkMonedasDescripcion: params.StkMonedasDescripcion})
+       .send({ StkMonedasCotizacion: params.StkMonedasCotizacion})
        .set('X-API-Key', 'foobar')
        .then(function(res) {
       // res.body, res.headers, res.status
@@ -116,9 +116,9 @@ class Monedas extends Component {
 
     render(){
         const monedas = this.state.monedas.map( (rowData,index) => 
-        // Object.assign(rowData, { borrar: <button className=" red accent-4" onClick={()=>this.deleteProduct(rowData.idTipoMonedas)}>Borrar</button> })
+        // Object.assign(rowData, { borrar: <button className=" red accent-4" onClick={()=>this.deleteProduct(rowData.idStkMonedas)}>Borrar</button> })
         Object.assign(rowData, { borrar: 
-            <div className="center-align"><BorrarMonedas idMonedas={rowData.idTipoMonedas} read={()=>this.read()}></BorrarMonedas></div>})
+            <div className="center-align"><BorrarMonedas idMonedas={rowData.idStkMonedas} read={()=>this.read()}></BorrarMonedas></div>})
             // <button 
             //     className=" red accent-4" 
             //     onClick={this.funcionTest}
@@ -166,17 +166,17 @@ class Monedas extends Component {
                                     {
                                     Header: "Código",
                                     id:"codigo",
-                                    accessor: "idTipoMonedas"
+                                    accessor: "idStkMonedas"
                                     
                                     },
                                     {
                                     Header: "Denomiación",
-                                    accessor: "TipoMonedasDescripcion",
+                                    accessor: "StkMonedasDescripcion",
                                     Cell: this.renderEditable
                                     },
                                     {
                                     Header: "Cotización",
-                                    accessor: "TipoMonedasCotizacion",
+                                    accessor: "StkMonedasCotizacion",
                                     Cell: this.renderEditable
                                     },
                                     {

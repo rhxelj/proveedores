@@ -7,9 +7,9 @@ class AgregarMonedas extends Component {
     constructor(props){
         super(props)
         this.state = {
-            idTipoMonedas:'',
-            TipoMonedasDescripcion:'',
-            TipoMonedasCotizacion:0.00,
+            idStkMonedas:'',
+            StkMonedasDescripcion:'',
+            StkMonedasCotizacion:0.00,
         }
         this.updateField = this.updateField.bind(this);
         this.submitMoneda = this.submitMoneda.bind(this);
@@ -21,9 +21,9 @@ class AgregarMonedas extends Component {
         request
         .post(url)
         .set('Content-Type', 'application/json')
-        .send({ idTipoMonedas: this.state.idTipoMonedas})
-        .send({ TipoMonedasDescripcion: this.state.TipoMonedasDescripcion})    
-        .send({ TipoMonedasCotizacion: this.state.TipoMonedasCotizacion})
+        .send({ idStkMonedas: this.state.idStkMonedas})
+        .send({ StkMonedasDescripcion: this.state.StkMonedasDescripcion})    
+        .send({ StkMonedasCotizacion: this.state.StkMonedasCotizacion})
         .set('X-API-Key', 'foobar')
         .then(function(res) {
         // res.body, res.headers, res.status
@@ -75,15 +75,15 @@ class AgregarMonedas extends Component {
                     <form className="col s12" onSubmit={this.submitMoneda}>
                         <div className="row">
                             <div className="input-field col s5">
-                                <input placeholder="Código" id="idTipoMonedas" type="text" value={this.state.idTipoMonedas} onChange={this.updateField} />
+                                <input placeholder="Código" id="idStkMonedas" type="text" value={this.state.idStkMonedas} onChange={this.updateField} />
                             </div>
                             <div className="row">
                                  <div className="input-field col s12">
-                                    <input placeholder="Descripción" id="TipoMonedasDescripcion" type="text" value={this.state.TipoMonedasDescripcion} onChange={this.updateField}/>
+                                    <input placeholder="Descripción" id="StkMonedasDescripcion" type="text" value={this.state.StkMonedasDescripcion} onChange={this.updateField}/>
                                 </div>
                                 <div className="row">
                                     <div className="input-field col s12">
-                                        <input placeholder="Cotización" id="TipoMonedasCotizacion" type="number" value={this.state.TipoMonedasCotizacion} onChange={this.updateField} step="any"/>  
+                                        <input placeholder="Cotización" id="StkMonedasCotizacion" type="number" value={this.state.StkMonedasCotizacion} onChange={this.updateField} step="any"/>  
                                     </div>
                                 </div>
                             </div> 

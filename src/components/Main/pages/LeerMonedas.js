@@ -44,17 +44,17 @@ class LeerMonedas extends Component {
                                 columns: [
                                     {
                                     Header: "Código",
-                                    accessor: "idTipoMonedas"
+                                    accessor: "idStkMonedas"
                                     
                                     },
                                     {
                                     Header: "Denomiación",
-                                    accessor: "TipoMonedasDescripcion"
+                                    accessor: "StkMonedasDescripcion"
                          
                                     },
                                     {
                                     Header: "Cotización",
-                                    accessor: "TipoMonedasCotizacion"
+                                    accessor: "StkMonedasCotizacion"
                                     },
                                    
                                     
@@ -77,7 +77,7 @@ class LeerMonedas extends Component {
                                 },
                                 alert("entro en modo edicion"),
                                 console.log(
-                                    "Contenido de rowInfo : " + rowInfo.original.TipoMonedasDescripcion),
+                                    "Contenido de rowInfo : " + rowInfo.original.StkMonedasDescripcion),
                                     console.log("indice = "+rowInfo.index)
                                 )
                                 

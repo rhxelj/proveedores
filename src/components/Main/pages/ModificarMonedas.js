@@ -11,9 +11,9 @@ class ModificarMonedas extends Component {
     constructor(props){
         super(props)
         this.state = {
-            idTipoMonedas:'',
-            TipoMonedasDescripcion:'',
-            TipoMonedasCotizacion: 0,
+            idStkMonedas:'',
+            StkMonedasDescripcion:'',
+            StkMonedasCotizacion: 0,
             monedas:[]
         }
         this.renderEditable = this.renderEditable.bind(this)
@@ -37,12 +37,12 @@ class ModificarMonedas extends Component {
       const  monedas  = params;
      
     request                  
-       .post('http://localhost:4000/modificarmonedas/'+monedas.idTipoMonedas)
+       .post('http://localhost:4000/modificarmonedas/'+monedas.idStkMonedas)
        .set('Content-Type', 'application/json')
        
     //    .send({ idtipomonedas: this.state.idtipomonedas})
-       .send({ TipoMonedasDescripcion: params.TipoMonedasDescripcion})
-       .send({ TipoMonedasCotizacion: params.TipoMonedasCotizacion})
+       .send({ StkMonedasDescripcion: params.StkMonedasDescripcion})
+       .send({ StkMonedasCotizacion: params.StkMonedasCotizacion})
        .set('X-API-Key', 'foobar')
        .then(function(res) {
       // res.body, res.headers, res.status
@@ -101,12 +101,12 @@ class ModificarMonedas extends Component {
                             columns: [
                                     {
                                     Header: "Código",
-                                    accessor: "idTipoMonedas"
+                                    accessor: "idStkMonedas"
                                     
                                     },
                                     {
                                     Header: "Denomiación",
-                                    accessor: "TipoMonedasDescripcion",
+                                    accessor: "StkMonedasDescripcion",
                                     Cell: this.renderEditable,
                                     resizable: true,
                                     sortable: true,
@@ -115,7 +115,7 @@ class ModificarMonedas extends Component {
                                     
                                     {
                                     Header: "Cotización",
-                                    accessor: "TipoMonedasCotizacion",
+                                    accessor: "StkMonedasCotizacion",
                                     Cell: this.renderEditable
                                     },
                                     

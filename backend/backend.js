@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var cors = require('cors');
 //var favicon = require('serve-favicon');
 var cors = require ('cors');
 var logger = require('morgan');
@@ -24,6 +25,11 @@ var leertipoprov = require('./routes/leertipoprov');
 var agregartipoprov = require('./routes/agregartipoprov');
 var modificartipoprov = require('./routes/modificartipoprov');
 var borrartipoprov = require('./routes/borrartipoprov');
+
+var leerstkunmed = require('./routes/leerstkunmed');
+var agregarstkunmed = require('./routes/agregarstkunmed');
+var modificarstkunmed = require('./routes/modificarstkunmed');
+var borrarstkunmed = require('./routes/borrarstkunmed');
 
 var leerrubromerc = require('./routes/leerrubromerc');
 var agregarrubromerc = require('./routes/agregarrubromerc');
@@ -69,7 +75,7 @@ app.use(perimitirCrossDomain);
 
 
 
-app.use('/', leerproveedor);
+app.use('/', leermonedas);
 
 // app.use('/leerproveedor', leerproveedor);
 // app.use('/agregarproveedor', agregarproveedor);
@@ -79,7 +85,7 @@ app.use('/', leerproveedor);
 
 
 
- app.use('/leermonedas', leermonedas);
+app.use('/leermonedas', leermonedas);
 app.use('/agregarmonedas', agregarmonedas);
 app.use('/modificarmonedas', modificarmonedas);
 app.use('/borrarmonedas', borrarmonedas);
@@ -91,6 +97,12 @@ app.use('/leertipoprov', leertipoprov);
 app.use('/agregartipoprov', agregartipoprov);
 app.use('/modificartipoprov', modificartipoprov);
 app.use('/borrartipoprov', borrartipoprov);
+
+
+app.use('/leerstkunmed', leerstkunmed);
+app.use('/agregarstkunmed', agregarstkunmed);
+app.use('/modificarstkunmed', modificarstkunmed);
+app.use('/borrarstkunmed', borrarstkunmed);
 
 
 app.use('/leerrubromerc', leerrubromerc);
