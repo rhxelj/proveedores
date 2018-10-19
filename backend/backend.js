@@ -75,12 +75,12 @@ app.use(perimitirCrossDomain);
 
 
 
-app.use('/', leermonedas);
+app.use('/', leerproveedor);
 
-// app.use('/leerproveedor', leerproveedor);
-// app.use('/agregarproveedor', agregarproveedor);
-// app.use('/modificarproveedor', modificarproveedor);
-// app.use('/borrarproveedor', borrarproveedor);
+app.use('/leerproveedor', leerproveedor);
+app.use('/agregarproveedor', agregarproveedor);
+app.use('/modificarproveedor', modificarproveedor);
+app.use('/borrarproveedor', borrarproveedor);
 
 
 

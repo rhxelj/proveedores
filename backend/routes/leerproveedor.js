@@ -20,8 +20,8 @@ var router = express();
 
 router.get('/', function(req, res, next) {
 
-      conexion.query('SELECT idProveedores, ProveedoresDesc, ProveedoresTipo, ProveedoresCUIT, ProveedoresCalle, ProveedoresNroCalle, ProveedoresPiso, ProveedoresDto, ProveedoresCodPos, ProveedoresLoc, ProveedoresPcia, ProveedoresTel, ProveedoresContacto, ProveedoresMail, ProveedoresWeb, ProveedoresCodMon, TipoProveedDesc, TipoProveed.TipoProveedDesc FROM BasesGenerales.Proveedores JOIN BasesGenerales.TipoProveed where Proveedores.ProveedoresTipo = TipoProveed.idTipoProveed',
-
+      conexion.query(
+          'SELECT idProveedores, ProveedoresDesc, ProveedoresTipo, ProveedoresCUIT, ProveedoresCalle, ProveedoresNroCalle, ProveedoresPiso, ProveedoresDto, ProveedoresCodPos, ProveedoresLoc, ProveedoresPcia, ProveedoresTel, ProveedoresContacto, ProveedoresMail, ProveedoresWeb, ProveedoresCodMon, StkTipoProveed.StkTipoProveedDesc FROM BasesGenerales.Proveedores JOIN BasesGenerales.StkTipoProveed where Proveedores.ProveedoresTipo = StkTipoProveed.idStkTipoProveed ',
   
         function(err, result) {
             if (err) {
@@ -32,5 +32,5 @@ router.get('/', function(req, res, next) {
         });
         
 });
-
+conexion.end;
 module.exports = router;
