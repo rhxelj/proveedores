@@ -49,78 +49,63 @@ class LeerTipoProv extends Component {
                                     },
                                     {
                                     Header: "Denomiación",
-                                    accessor: "ProveedoresDesc",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresDesc"
                                     },
                                     {
                                     Header: "Tipo",
-                                    accessor: "TipoProveedDesc",
-                                    Cell: this.renderEditable
+                                    accessor: "StkTipoProveedDesc"
                                     },
                                     {
                                     Header: "CUIT",
-                                    accessor: "ProveedoresCUIT",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresCUIT"
                                     },
                                     {
                                     Header: "Calle",
-                                    accessor: "ProveedoresCalle",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresCalle"
                                     },
                                     {
                                     Header: "Nro",
-                                    accessor: "ProveedoresNroCalle",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresNroCalle"
                                     },
                                     {
                                     Header: "Piso",
-                                    accessor: "ProveedoresPiso",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresPiso"
                                     },
                                     {
                                     Header: "Dto",
-                                    accessor: "ProveedoresDto",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresDto"
                                     },
                                     {
                                     Header: "Cod.Postal",
-                                    accessor: "ProveedoresCodPos",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresCodPos"
                                     },
                                     {
                                     Header: "Localidad",
-                                    accessor: "ProveedoresLoc",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresLoc"
                                     },
                                     {
                                     Header: "Provincia",
-                                    accessor: "ProveedoresPcia",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresPcia"
                                     },
                                     {
                                     Header: "Teléfono",
-                                    accessor: "ProveedoresTel",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresTel"
                                     },
                                     {
                                     Header: "Contacto",
-                                    accessor: "ProveedoresContacto",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresContacto"
                                     },
                                     {
                                     Header: "mail",
-                                    accessor: "ProveedoresMail",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresMail"
                                     },
                                     {
                                     Header: "Pág. Web",
-                                    accessor: "ProveedoresWeb",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresWeb"
                                     },
                                     {
                                     Header: "Moneda",
-                                    accessor: "ProveedoresCodMon",
-                                    Cell: this.renderEditable
+                                    accessor: "ProveedoresCodMon"
                                     }
                             ]
                         }                
