@@ -34,6 +34,11 @@ console.log('indice  ', indice);
     conexion.query('UPDATE StkGrupo SET StkGrupoDesc = "' + descr + '", StkGrupoAbr = "' + abrev + '", StkGrupoContRubro = '+ contRubro + ' WHERE idStkGrupo = "' + indice + '"',
         function(err, result) {
             if (err) {
+                if (err.errno == 1062) 
+                        {
+                        return res.status(409).send({message : "Abreviatura de Grupo existente"});
+                        }
+                    else
                 console.log(err);
             } else {
                 res.json(result);
