@@ -10,9 +10,9 @@ import { Route } from 'react-router-dom'
 // import UpdateComponent from './pages/UpdateComponent'
 //import DeleteComponent from './pages/DeleteComponent'
 import Monedas from './pages/Monedas'
-import AgregarMonedas from './pages/AgregarMonedas'
-import BorrarMonedas from './pages/BorrarMonedas'
-import ModificarMonedas from './pages/ModificarMonedas'
+// import AgregarMonedas from './pages/AgregarMonedas'
+// import BorrarMonedas from './pages/BorrarMonedas'
+// import ModificarMonedas from './pages/ModificarMonedas'
 import LeerMonedas from './pages/LeerMonedas'
 
 const Main = () => (
@@ -29,10 +29,10 @@ const Main = () => (
         <div className="container"> 
             <Route exact path="/" component={LeerMonedas}/>
             <Route path="/Monedas" component={Monedas}/>
-            <Route path="/AgregarMonedas" component={AgregarMonedas}/>
-            <Route path="/BorrarMonedas" component={BorrarMonedas}/>
-            <Route path="/ModificarMonedas" component={ModificarMonedas}/>
-            <Route path="/LeerMonedas" component={LeerMonedas}/>
+            {/* <Route path="/AgregarMonedas" component={AgregarMonedas}/> */}
+            {/* <Route path="/BorrarMonedas" component={BorrarMonedas}/> */}
+            {/* <Route path="/ModificarMonedas" component={ModificarMonedas}/> */}
+            {/* <Route path="/LeerMonedas" component={LeerMonedas}/> */}
             {/* <Route  component={About}/> para captar las rutas no definidas tengo que importar Switch */}
         </div>
     </main>
