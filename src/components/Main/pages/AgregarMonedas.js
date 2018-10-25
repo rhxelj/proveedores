@@ -62,8 +62,8 @@ class AgregarMonedas extends Component {
        this.props.click()
     }
 
+          
     componentDidMount(){
-  
     }
 
 
@@ -72,18 +72,41 @@ class AgregarMonedas extends Component {
         return( 
             <div className="section">
                 <div className="row">
-                    <form className="col s12" onSubmit={this.submitMoneda}>
+                    {/* <form className="col s12" onSubmit={this.submitMoneda}> */}
+                    <form className="col s12" >
                         <div className="row">
                             <div className="input-field col s5">
-                                <input placeholder="Código" id="idStkMonedas" type="text" value={this.state.idStkMonedas} onChange={this.updateField} />
+                                <input 
+                                    id="idStkMonedas"
+                                    placeholder="Código"
+                                    type="text"
+                                    value={this.state.idStkMonedas} 
+                                    onChange={this.updateField}
+                                    onKeyPress={(event) => {if (event.key === 'Enter') document.getElementById('StkMonedasDescripcion').focus();}}
+                                />
                             </div>
                             <div className="row">
                                  <div className="input-field col s12">
-                                    <input placeholder="Descripción" id="StkMonedasDescripcion" type="text" value={this.state.StkMonedasDescripcion} onChange={this.updateField}/>
+                                    <input 
+                                        id="StkMonedasDescripcion"
+                                        placeholder="Descripción"
+                                        type="text"
+                                        value={this.state.StkMonedasDescripcion}
+                                        onChange={this.updateField}
+                                        onKeyPress={(event) => {if (event.key === 'Enter') document.getElementById('StkMonedasCotizacion').focus();}}
+                                    />
                                 </div>
                                 <div className="row">
                                     <div className="input-field col s12">
-                                        <input placeholder="Cotización" id="StkMonedasCotizacion" type="number" value={this.state.StkMonedasCotizacion} onChange={this.updateField} step="any"/>  
+                                        <input 
+                                            id="StkMonedasCotizacion"  
+                                            placeholder="Cotización" 
+                                            type="number" 
+                                            value={this.state.StkMonedasCotizacion} 
+                                            onChange={this.updateField} 
+                                            step="any"
+                                            onKeyPress={(event) => {if (event.key === 'Enter') document.getElementById('button--submit').focus();}}
+                                        />  
                                     </div>
                                 </div>
                             </div> 
@@ -92,8 +115,16 @@ class AgregarMonedas extends Component {
                         <div className="card-action">
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <button onClick={this.submitMoneda} className="btn">Agregar Moneda</button>
-                                    <a className="btn" href="#" onClick={this.props.click}>Cancelar</a>
+                                    {/* <button onClick={this.submitMoneda} className="btn">Agregar Moneda</button> */}
+                                    {/* <button  onClick={this.submitMoneda} className="btn">Agregar Moneda</button> */}
+                                    <input 
+                                        className="btn"
+                                        id="button--submit"  
+                                        type="button" 
+                                        value="Agregar Moneda" 
+                                        onClick={this.submitMoneda}                                    
+                                    />
+                                    <a className="btn red"  onClick={this.props.click}>Cancelar</a>
                                 </div>   
                             </div>
                         </div>
