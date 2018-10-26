@@ -19,7 +19,7 @@ var router = express();
 
 router.get('/', function(req, res, next) {
   
-    conexion.query('Select * from TipoProveed ' ,
+    conexion.query('Select * from StkTipoProveed ' ,
         function(err, result) {
             if (err) {
                 console.log(err);

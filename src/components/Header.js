@@ -11,6 +11,7 @@ const Header = () => (
                 <Link to="/" className="brand-logo">STOCK APP</Link>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link to="/Monedas">Monedas</Link></li>
+                    <li><Link to="/Proveedores">Proveedores</Link></li>
                     {/* <li><Link to="/AgregarMonedas">Agregar Monedas</Link></li> */}
                     {/* <li><Link to="/BorrarMonedas">Borrar Monedas</Link></li> */}
                     {/* <li><Link to="/ModificarMonedas">Modificar Monedas</Link></li> */}

@@ -6,7 +6,7 @@ var conexion = require('./conexion');
 
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada");
+        console.log("base de datos conectada stktipoproveed");
     } else {
         console.log("no se conecto");
     }
@@ -24,11 +24,11 @@ console.log('estamos aca');
 router.post('/?:id', function(req, res, next) {
  indice = req.params.id;
 
- descr = req.body.TipoProveedDesc;
+ descr = req.body.StkTipoProveedDesc;
  
 
    // conexion.query('Select * from TipoMonedas where idTipoMonedas = "' + indice + '"',
-    conexion.query('UPDATE TipoProveed SET TipoProveedDesc = "' + descr + '" WHERE idTipoProveed = ' + indice ,
+    conexion.query('UPDATE StkTipoProveed SET StkTipoProveedDesc = "' + descr + '" WHERE idStkTipoProveed = ' + indice ,
         function(err, result) {
             if (err) {
                 console.log(err);

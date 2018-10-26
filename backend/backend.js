@@ -8,43 +8,43 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
-var leerproveedor = require('./routes/leerproveedor');
-var agregarproveedor = require('./routes/agregarproveedor');
+var proveedoresleer = require('./routes/proveedoresleer');
+var proveedoresagregar = require('./routes/proveedoresagregar');
 // var actualizaprov = require('./routes/actualizaprov');
-var borrarproveedor = require('./routes/borrarproveedor');
-var modificarproveedor = require('./routes/modificarproveedor');
-var indextipoprov = require('./routes/indextipoprov');
+var proveedoresborrar = require('./routes/proveedoresborrar');
+var proveedoresmodificar = require('./routes/proveedoresmodificar');
+//var indextipoprov = require('./routes/indextipoprov');
 
 
-var leermonedas = require('./routes/leermonedas');
-var agregarmonedas = require('./routes/agregarmonedas');
-var modificarmonedas = require('./routes/modificarmonedas');
-var borrarmonedas = require('./routes/borrarmonedas');
+var stkmonedasleer = require('./routes/stkmonedasleer');
+var stkmonedasagregar = require('./routes/stkmonedasagregar');
+var stkmonedasmodificar = require('./routes/stkmonedasmodificar');
+var stkmonedasborrar = require('./routes/stkmonedasborrar');
 
-var leertipoprov = require('./routes/leertipoprov');
-var agregartipoprov = require('./routes/agregartipoprov');
-var modificartipoprov = require('./routes/modificartipoprov');
-var borrartipoprov = require('./routes/borrartipoprov');
+var stktipoproveedleer = require('./routes/stktipoproveedleer');
+var stktipoproveedagregar = require('./routes/stktipoproveedagregar');
+var stktipoproveedmodificar = require('./routes/stktipoproveedmodificar');
+var stktipoproveedborrar = require('./routes/stktipoproveedborrar');
 
-var leerstkunmed = require('./routes/leerstkunmed');
-var agregarstkunmed = require('./routes/agregarstkunmed');
-var modificarstkunmed = require('./routes/modificarstkunmed');
-var borrarstkunmed = require('./routes/borrarstkunmed');
+var stkunmedleer = require('./routes/stkunmedleer');
+var stkunmedagregar = require('./routes/stkunmedagregar');
+var stkunmedmodificar = require('./routes/stkunmedmodificar');
+var stkunmedborrar = require('./routes/stkunmedborrar');
 
-var leerrubromerc = require('./routes/leerrubromerc');
-var agregarrubromerc = require('./routes/agregarrubromerc');
-var modificarrubromerc = require('./routes/modificarrubromerc');
-var borrarrubromerc = require('./routes/borrarrubromerc');
+// var leerrubromerc = require('./routes/leerrubromerc');
+// var agregarrubromerc = require('./routes/agregarrubromerc');
+// var modificarrubromerc = require('./routes/modificarrubromerc');
+// var borrarrubromerc = require('./routes/borrarrubromerc');
 
-var leerstkgrupo = require('./routes/leerstkgrupo');
-var agregarstkgrupo = require('./routes/agregarstkgrupo');
-var modificarstkgrupo = require('./routes/modificarstkgrupo');
-var borrarstkgrupo = require('./routes/borrarstkgrupo');
+var stkgrupoleer = require('./routes/stkgrupoleer');
+var stkgrupoagregar = require('./routes/stkgrupoagregar');
+var stkgrupomodificar = require('./routes/stkgrupomodificar');
+var stkgrupoborrar = require('./routes/stkgrupoborrar');
 
-var leerstkrubro = require('./routes/leerstkrubro');
-var agregarstkrubro = require('./routes/agregarstkrubro');
-var modificarstkrubro = require('./routes/modificarstkrubro');
-var borrarstkrubro = require('./routes/borrarstkrubro');
+var stkrubroleer = require('./routes/stkrubroleer');
+var stkrubroagregar = require('./routes/stkrubroagregar');
+var stkrubromodificar = require('./routes/stkrubromodificar');
+var stkrubroborrar = require('./routes/stkrubroborrar');
 
 // function agregada por el error CROS
 function perimitirCrossDomain(req, res, next) {
@@ -75,50 +75,50 @@ app.use(perimitirCrossDomain);
 
 
 
-app.use('/', leerproveedor);
+app.use('/', proveedoresleer);
 
-app.use('/leerproveedor', leerproveedor);
-app.use('/agregarproveedor', agregarproveedor);
-app.use('/modificarproveedor', modificarproveedor);
-app.use('/borrarproveedor', borrarproveedor);
-
-
-
-
-app.use('/leermonedas', leermonedas);
-app.use('/agregarmonedas', agregarmonedas);
-app.use('/modificarmonedas', modificarmonedas);
-app.use('/borrarmonedas', borrarmonedas);
+app.use('/proveedoresleer', proveedoresleer);
+app.use('/proveedoresagregar', proveedoresagregar);
+app.use('/proveedoresmodificar', proveedoresmodificar);
+app.use('/proveedoresborrar', proveedoresborrar);
 
 
 
 
-app.use('/leertipoprov', leertipoprov);
-app.use('/agregartipoprov', agregartipoprov);
-app.use('/modificartipoprov', modificartipoprov);
-app.use('/borrartipoprov', borrartipoprov);
+app.use('/stkmonedasleer', stkmonedasleer);
+app.use('/stkmonedasagregar', stkmonedasagregar);
+app.use('/stkmonedasmodificar', stkmonedasmodificar);
+app.use('/stkmonedasborrar', stkmonedasborrar);
 
 
-app.use('/leerstkunmed', leerstkunmed);
-app.use('/agregarstkunmed', agregarstkunmed);
-app.use('/modificarstkunmed', modificarstkunmed);
-app.use('/borrarstkunmed', borrarstkunmed);
 
 
-app.use('/leerrubromerc', leerrubromerc);
-app.use('/agregarrubromerc', agregarrubromerc);
-app.use('/modificarrubromerc', modificarrubromerc);
-app.use('/borrarrubromerc', borrarrubromerc);
+app.use('/stktipoproveedleer', stktipoproveedleer);
+app.use('/stktipoproveedagregar', stktipoproveedagregar);
+app.use('/stktipoproveedmodificar', stktipoproveedmodificar);
+app.use('/stktipoproveedborrar', stktipoproveedborrar);
 
-app.use('/leerstkgrupo', leerstkgrupo);
-app.use('/agregarstkgrupo', agregarstkgrupo);
-app.use('/modificarstkgrupo', modificarstkgrupo);
-app.use('/borrarstkgrupo', borrarstkgrupo);
 
-app.use('/leerstkrubro', leerstkrubro);
-app.use('/agregarstkrubro', agregarstkrubro);
-app.use('/modificarstkrubro', modificarstkrubro);
-app.use('/borrarstkrubro', borrarstkrubro);
+app.use('/stkunmedleer', stkunmedleer);
+app.use('/stkunmedagregar', stkunmedagregar);
+app.use('/stkunmedmodificar', stkunmedmodificar);
+app.use('/stkunmedborrar', stkunmedborrar);
+
+
+// app.use('/leerrubromerc', leerrubromerc);
+// app.use('/agregarrubromerc', agregarrubromerc);
+// app.use('/modificarrubromerc', modificarrubromerc);
+// app.use('/borrarrubromerc', borrarrubromerc);
+
+app.use('/stkgrupoleer', stkgrupoleer);
+app.use('/stkgrupoagregar', stkgrupoagregar);
+app.use('/stkgrupomodificar', stkgrupomodificar);
+app.use('/stkgrupoborrar', stkgrupoborrar);
+
+app.use('/stkrubroleer', stkrubroleer);
+app.use('/stkrubroagregar', stkrubroagregar);
+app.use('/stkrubromodificar', stkrubromodificar);
+app.use('/stkrubroborrar', stkrubroborrar);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

@@ -15,6 +15,9 @@ import Monedas from './pages/Monedas'
 // import ModificarMonedas from './pages/ModificarMonedas'
 import LeerMonedas from './pages/LeerMonedas'
 
+
+import Proveedores from './pages/Proveedores'
+import LeerProveedor from './pages/LeerProveedor'
 const Main = () => (
     <main>
         
@@ -29,6 +32,8 @@ const Main = () => (
         <div className="container"> 
             <Route exact path="/" component={LeerMonedas}/>
             <Route path="/Monedas" component={Monedas}/>
+            {/* <Route exact path="/" component={LeerProveedor}/> */}
+            <Route path="/Proveedores" component={Proveedores}/>
             {/* <Route path="/AgregarMonedas" component={AgregarMonedas}/> */}
             {/* <Route path="/BorrarMonedas" component={BorrarMonedas}/> */}
             {/* <Route path="/ModificarMonedas" component={ModificarMonedas}/> */}
