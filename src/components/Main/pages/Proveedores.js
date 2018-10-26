@@ -2,36 +2,42 @@ import React, { Component} from 'react'
 import request from 'superagent'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
-import { stringify } from 'querystring';
 
-class ModificarProveedor extends Component {
+import AgregarProveedor from './ProveedoresAgregar'
+import BorrarProveedores from './ProveedoresBorrar'
+
+import IpServidor from './VariablesDeEntorno'
+
+class Proveedores extends Component {
     constructor(props){
         super(props)
         this.state = {
-            idProveedores:1,
-            ProveedoresDesc:'',
-            ProveedoresTipo: 1,
-            ProveedoresCUIT:'',
-            ProveedoresCalle:'',
-            ProveedoresNroCalle:'',
-            ProveedoresPiso:'',
-            ProveedoresDto:'',
-            ProveedoresCodPos:'',
-            ProveedoresLoc:'',
-            ProveedoresPcia:'',
-            ProveedoresTel:'',
-            ProveedoresContacto:'',
-            ProveedoresMail:'',
-            ProveedoresWeb:'',
-            ProveedoresCodMon:'',
+            toggle: false,
+            provdesc:'',
+            provtipo:1,
+            provcuit:'',
+            provcalle:'',
+            provnrocalle:'',
+            provpiso:'',
+            provdto:'',
+            provcodpostal:'',
+            provlocalidad:'',
+            provprovincia:'',
+            provtelefono:'',
+            provcontacto:'',
+            provmail:'',
+            provpagweb:'',
+            provcodmon:'',
             proveedores:[]
         }
         this.renderEditable = this.renderEditable.bind(this)
+        this.toggle = this.toggle.bind(this);
+        this.funcionTest = this.funcionTest.bind(this);
     }    
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/leerproveedor'; //'http://192.168.2.102:4000/leerproveedor'
+        const url = IpServidor + '/proveedorleer'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')
@@ -42,37 +48,69 @@ class ModificarProveedor extends Component {
     }
 
     //Update
-    updateProduct = (params) => {
-      const  proveedor  = params;
+    ActualizaProveedor = (params) => {
+     
+      const  proveedores  = params;
+     
     request                  
-       .post('http://localhost:4000/modificarproveedor/'+proveedor.idProveedores)
+       .post(IpServidor + '/proveedormodificar/'+proveedores.idProveedores)
        .set('Content-Type', 'application/json')
        
-       /* .send({ idProveedores: this.state.idProveedores}) */
-       .send({ ProveedoresDesc: params.ProveedoresDesc})
-       .send({ ProveedoresTipo: params.ProveedoresTipo})
-       .send({ ProveedoresCUIT: params.ProveedoresCUIT})        
-       .send({ ProveedoresCalle: params.ProveedoresCalle})
-       .send({ ProveedoresNroCalle: params.ProveedoresNroCalle})
-       .send({ ProveedoresPiso: params.ProveedoresPiso})
-       .send({ ProveedoresDto: params.ProveedoresDto})
-       .send({ ProveedoresCodPos: params.ProveedoresCodPos})
-       .send({ ProveedoresLoc: params.ProveedoresLoc})
-       .send({ ProveedoresPcia: params.ProveedoresPcia})
-       .send({ ProveedoresTel: params.ProveedoresTel})
-       .send({ ProveedoresContacto: params.ProveedoresContacto})
-       .send({ ProveedoresMail: params.ProveedoresMail})
-       .send({ ProveedoresWeb: params.ProveedoresWeb})
-       .send({ ProveedoresCodMon: params.ProveedoresCodMon})
+    //    .send({ idtipomonedas: this.state.idtipomonedas})
 
-
+        .send({ provdesc: this.state.provdesc})
+        .send({ provtipo: this.state.provtipo})
+        .send({ provcuit: this.state.provcuit})        
+        .send({ provcalle: this.state.provcalle})
+        .send({ provnrocalle: this.state.provnrocalle})
+        .send({ provpiso: this.state.provpiso})
+        .send({ provdto: this.state.provdto})
+        .send({ provcodpostal: this.state.provcodpostal})
+        .send({ provlocalidad: this.state.provlocalidad})
+        .send({ provprovincia: this.state.provprovincia})
+        .send({ provtelefono: this.state.provtelefono})
+        .send({ provcontacto: this.state.provcontacto})
+        .send({ provmail: this.state.provmail})
+        .send({ provpagweb: this.state.provpagweb})
+        .send({ provcodmon: this.state.provcodmon})
        .set('X-API-Key', 'foobar')
        .then(function(res) {
       // res.body, res.headers, res.status
         });
+       
         //this.getproveedores();
      }
     
+     deleteProduct = (id)=> {
+        
+        //       const { moneda } = this.state;
+               request
+                 .delete(IpServidor + '/proveedorborrar/'+id)
+                 .set('Content-Type', 'application/json')
+                 //.set('X-API-Key', 'foobar')
+                 .then(function(res) {
+               // res.body, res.headers, res.status
+                 })
+                 .catch(err => {
+                    if (err.status === 411) 
+                            {
+                            alert('Código de Proveedor Usado no se puede borrar  ') 
+                            }
+                        })
+                 //alert("Borrado")
+                //  this.toggle()
+                 this.read()
+             }
+    
+    toggle(event){
+        this.setState(prevState => ({
+        toggle: !prevState.toggle
+        }))
+    }
+    
+    componentWillUnmount(){
+        this.read()
+    }
     componentDidMount(){
         this.read()
     }
@@ -84,34 +122,72 @@ class ModificarProveedor extends Component {
             contentEditable
             suppressContentEditableWarning
             onBlur={e => {
-              const proveedores = [...this.state.proveedores];
-              proveedores[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-              this.setState({ proveedores });
-            //   console.log('cellInfo: '+  JSON.stringify(cellInfo))
-            //   console.log(cellInfo.original)
-              this.updateProduct(cellInfo.original)
+              const proveedores = [...this.state.proveedores]
+              proveedores[cellInfo.index][cellInfo.column.id] = e.target.innerHTML
+              this.setState({ proveedores })
+              this.ActualizaProveedor(cellInfo.original)
             }}
             dangerouslySetInnerHTML={{
               __html: this.state.proveedores[cellInfo.index][cellInfo.column.id]
             }}
           />
-        );
+        )
+      }
+
+
+      funcionTest(){ 
+        alert('ggggg')
+        
       }
 
     render(){
-        const proveedores = this.state.proveedores
+        const proveedores = this.state.proveedores.map( (rowData,index) => 
+        Object.assign(rowData, { borrar: 
+            <div className="center-align"><BorrarProveedores idProveedores={rowData.idProveedores} read={()=>this.read()}></BorrarProveedores></div>})
+         
+        );
         return( 
             <div>
-                <h1>Actualiza Proveedores</h1>
+                {/* <BorrarMonedas ></BorrarMonedas> */}
+                <h1>ABM DE Proveedores</h1>
+                
+                
+                {this.state.toggle
+                ?
+                <div>
+                    <div className="row">
+                        <div className="col s12 ">
+                            <div className="">
+                                <div className="card-content  white-text">
+                                    <AgregarProveedor click={()=>this.toggle()} read={()=>this.read()}> </AgregarProveedor>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                :
+                <p onClick={()=>this.toggle()} className='btn'>AGREGAR Proveedores</p>
+                }
+               
                 <ReactTable
                         data={proveedores}
+
+                        filterable
+                        defaultSorted={[
+                            {
+                                id: "codigo",
+                                desc: true
+                            }
+                        ]}
+
                         columns={[
                              {                   
-                            columns: [
+                                columns: [
                                     {
                                     Header: "Código",
-                                    accessor: "idProveedores"
-                                    
+                                    id:"codigo",
+                                    accessor: "idProveedores",
+                                    Cell: this.renderEditable
                                     },
                                     {
                                     Header: "Denomiación",
@@ -120,7 +196,7 @@ class ModificarProveedor extends Component {
                                     },
                                     {
                                     Header: "Tipo",
-                                    accessor: "TipoProveedDesc",
+                                    accessor: "StkTipoProveedDesc",
                                     Cell: this.renderEditable
                                     },
                                     {
@@ -187,7 +263,13 @@ class ModificarProveedor extends Component {
                                     Header: "Moneda",
                                     accessor: "ProveedoresCodMon",
                                     Cell: this.renderEditable
+                                    },
+                                    {
+                                        Header: "",
+                                        accessor: "borrar",
+                                        // Cell: this.renderEditable
                                     }
+                                        
                             ]
                         }                
                             
@@ -200,4 +282,4 @@ class ModificarProveedor extends Component {
     }
 }
 
-export default ModificarProveedor
+export default Proveedores

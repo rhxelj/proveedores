@@ -3,8 +3,8 @@ import request from 'superagent'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
-
-class LeerTipoProv extends Component {
+import IpServidor from './VariablesDeEntorno'
+class LeerProveedor extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -14,7 +14,7 @@ class LeerTipoProv extends Component {
     
     //Read
     read = _ => {
-        const url = 'http://192.168.2.102:4000/leerproveedor' ; //'http://localhost:3000/data'
+        const url = IpServidor + '/leerproveedor' ; //'http://localhost:3000/data'
         request
         .get(url)
         .set('Content-Type', 'application/json')
@@ -33,6 +33,7 @@ class LeerTipoProv extends Component {
     render(){
         // const products = this.state.products
         const proveedor = this.state.proveedor
+
         return( 
             <div>
                 <ul>
@@ -120,4 +121,4 @@ class LeerTipoProv extends Component {
     }
 }
 
-export default LeerTipoProv
+export default LeerProveedor
