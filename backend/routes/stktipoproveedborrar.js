@@ -7,7 +7,7 @@ var mysql = require('mysql');
 var router = express();
 conexion.connect(function(err) {
     if (!err) {
-        console.log("base de datos conectada");
+        console.log("base de datos conectada stktipoproveed");
     } else {
         console.log("no se conecto");
     }
@@ -18,7 +18,7 @@ router.delete('/?:id', function(req, res, next) {
     indice = req.params.id;
 
 
-  conexion.query('delete from TipoProveed where idTipoProveed = ' + indice, 
+  conexion.query('delete from StkTipoProveed where idStkTipoProveed = ' + indice, 
                                          function(err, result) {
                                             if (err) {
                                                 console.log(err);
