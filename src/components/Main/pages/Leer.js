@@ -17,7 +17,7 @@ class Leer extends Component {
     
     //Read
     read = _ => {
-        const url = IpServidor + '/leermonedas'; //'http://192.168.2.102:4000/indexprov'
+        const url = IpServidor + '/stkmonedasleer'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')

@@ -37,7 +37,7 @@ class Proveedores extends Component {
     
     //Read
     read = _ => {
-        const url = IpServidor + '/proveedorleer'; //'http://192.168.2.102:4000/indexprov'
+        const url = IpServidor + '/proveedoresleer'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')
@@ -53,7 +53,7 @@ class Proveedores extends Component {
       const  proveedores  = params;
      
     request                  
-       .post(IpServidor + '/proveedormodificar/'+proveedores.idProveedores)
+       .post(IpServidor + '/proveedoresmodificar/'+proveedores.idProveedores)
        .set('Content-Type', 'application/json')
        
     //    .send({ idtipomonedas: this.state.idtipomonedas})
@@ -85,7 +85,7 @@ class Proveedores extends Component {
         
         //       const { moneda } = this.state;
                request
-                 .delete(IpServidor + '/proveedorborrar/'+id)
+                 .delete(IpServidor + '/proveedoresborrar/'+id)
                  .set('Content-Type', 'application/json')
                  //.set('X-API-Key', 'foobar')
                  .then(function(res) {

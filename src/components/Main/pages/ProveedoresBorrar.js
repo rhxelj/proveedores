@@ -27,7 +27,7 @@ class ProveedoresBorrar extends Component {
     
     //Read
     read = _ => {
-        const url = IpServidor + '/proveedorleer'; //'http://192.168.2.102:4000/indexprov'
+        const url = IpServidor + '/proveedoresleer'; //'http://192.168.2.102:4000/indexprov'
         request
         .get(url)
         .set('Content-Type', 'application/json')
@@ -43,7 +43,7 @@ class ProveedoresBorrar extends Component {
         
         const { product } = this.state;
         request
-          .delete(IpServidor + '/proveedorborrar/'+id)
+          .delete(IpServidor + '/proveedoresborrar/'+id)
           .set('Content-Type', 'application/json')
           //.set('X-API-Key', 'foobar')
           .then(function(res) {

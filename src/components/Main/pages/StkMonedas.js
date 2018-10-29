@@ -147,7 +147,7 @@ class Monedas extends Component {
                     </div>
                 </div>
                 :
-                <p onClick={()=>this.toggle()} className='btn'> monedaAGREGARs</p>
+                <p onClick={()=>this.toggle()} className='btn'>  AGREGAR MONEDAS </p>
                 }
                
                 <ReactTable

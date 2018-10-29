@@ -83,6 +83,9 @@ class ProveedoresAgregar extends Component {
         console.log('ESTADO :'+field.target.id + ' Valor :'+field.target.value)
     }
 
+	toggleList = () => {
+		this.setState({ isOpen: !this.state.isOpen });
+	}
 
     submitProveedor(e){
         e.preventDefault()
@@ -109,25 +112,26 @@ class ProveedoresAgregar extends Component {
       
 
         const tipoproveedor = this.state.tipoprov
-        const defaultOption = tipoproveedor.value
+
         return( 
             
-            <div className="section">
-            <h1>Nuevo Proveedor</h1>
-            <div className="row">
-             <div className="input-field col s12">
-                <label htmlFor='Tipo'>Tipo</label>
-                <Dropdown options={tipoproveedor} 
-                    onChange={this._onSelect} 
-                    value={defaultOption} placeholder="Select an option" />
-                 {/* <select name="Tipo" value={this.tipo} onChange={this.leetprov}  >
-                    <option value={this.tipo}></option> 
+            // <div className="section">
+            // <h1>Nuevo Proveedoreee</h1>
+            // <div className="row">
+            //  <div className="input-field col s12">
+            //     <label htmlFor='Tipdsdso'>Tipo</label>
+            //     <Dropdown options={tipoproveedor} 
+            //         onChange={this._onSelect} 
+            //         value={defaultOption} placeholder="Select an option" />
+            //      {/* <select name="Tipo" value={this.tipo} onChange={this.leetprov}  >
+            //         <option value={this.tipo}></option> 
                   
-                </select>  */}
-                </div>
-            </div>
+            //     </select>  */}
+            //     </div>
+            // </div>
 
          
+      
                     
                 <div className="row">
                     <form className="col s12" onSubmit={this.submitPost}>
@@ -303,7 +307,6 @@ class ProveedoresAgregar extends Component {
                            
                     </form>
                 </div>
-            </div>
         )
     }
 }

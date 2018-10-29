@@ -9,15 +9,12 @@ import { Route } from 'react-router-dom'
 // import ReadComponent from './pages/ReadComponent'
 // import UpdateComponent from './pages/UpdateComponent'
 //import DeleteComponent from './pages/DeleteComponent'
-import Monedas from './pages/Monedas'
-// import AgregarMonedas from './pages/AgregarMonedas'
-// import BorrarMonedas from './pages/BorrarMonedas'
-// import ModificarMonedas from './pages/ModificarMonedas'
-import LeerMonedas from './pages/LeerMonedas'
+import StkMonedas   from './pages/StkMonedas'
+import Proveedores  from './pages/Proveedores'
+import StkUnMed     from './pages/StkUnMed'
 
-
-import Proveedores from './pages/Proveedores'
-import LeerProveedor from './pages/LeerProveedor'
+import StkMonedasBorrar from './pages/StkMonedasBorrar';
+// import LeerProveedor from './pages/LeerProveedor'
 const Main = () => (
     <main>
         
@@ -30,10 +27,10 @@ const Main = () => (
         */}
         
         <div className="container"> 
-            <Route exact path="/" component={LeerMonedas}/>
-            <Route path="/Monedas" component={Monedas}/>
-            {/* <Route exact path="/" component={LeerProveedor}/> */}
-            <Route path="/Proveedores" component={Proveedores}/>
+            {/* <Route exact path="/" component={LeerMonedas}/> */}
+            <Route path="/StkMonedas"   component={StkMonedas}/>
+            <Route path="/Proveedores"  component={Proveedores}/>
+            <Route path="/StkUnMed"     component={StkUnMed}/>
             {/* <Route path="/AgregarMonedas" component={AgregarMonedas}/> */}
             {/* <Route path="/BorrarMonedas" component={BorrarMonedas}/> */}
             {/* <Route path="/ModificarMonedas" component={ModificarMonedas}/> */}
