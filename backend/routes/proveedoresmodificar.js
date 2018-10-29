@@ -14,22 +14,7 @@ conexion.connect(function(err) {
 });
 var router = express();
 
-/* 
 
-router.get('/?:id', function(req, res, next) {
-    console.log('no anda');
-    indice = req.params.id;
-    conexion.query('Select * from Proveedores where idProveedores = ' + indice,
-    function(err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            //   res.json(result.rows);
-            var nombreres = JSON.stringify(result.rows);
-            var nombrepar = JSON.parse(nombreres);
-            console.log(nombrepar[0]);
-}})});
- */
 router.post('/?:id', function(req, res) {
     //indice = req.params.id;
     indice = req.params.id;

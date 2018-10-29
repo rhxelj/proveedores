@@ -17,50 +17,6 @@ conexion.connect(function(err) {
         console.log("no se conecto en agregarproveedor");
     }
 });
-var formulario = '<form method="post" action="/agregaprov">' +
-    '<label for="provdesc"> Descripción  </label>' +
-    '<input type="text" name="provdesc" id="provdesc"/><BR>' +
-    '<label for="provtipo"> Tipo  </label>' +
-    '<input type="number" step="any" name="provtipo" id="provtipo"/><BR>' +
-    '<label for="cuit"> C.U.I.T. </label>' +
-    '<input type="text" name="provcuit" id="provcuit"/><BR>' +
-    '<label for="provcalle"> Calle  </label>' +
-    '<input type="text" name="provcalle" id="provcalle"/><BR>' +
-    '<label for="provnrocalle"> Nro  </label>' +
-    '<input type="number" step="any" name="provnrocalle" id="provnrocalle"/><BR>' +
-    '<label for="provpiso"> Piso  </label>' +
-    '<input type="text" name="provpiso" id="provpiso"/><BR>' +
-    '<label for="provdto"> Dto  </label>' +
-    '<input type="text" name="provdto" id="provdto"/><BR>' +
-    '<label for="provcodpostal"> Código Postal  </label>' +
-    '<input type="text" name="provcodpostal" id="provcodpostal"/><BR>' +
-    '<label for="provlocalidad"> Localidad  </label>' +
-    '<input type="text" name="provlocalidad" id="provlocalidad"/><BR>' +
-    '<label for="provprovincia"> Provincia  </label>' +
-    '<input type="text" name="provprovincia" id="provprovincia"/><BR>' +
-    '<label for="provtelefono"> Teléfono  </label>' +
-    '<input type="text" name="provtelefono" id="provtelefono"/><BR>' +
-    '<label for="provcontacto"> Contacto </label>' +
-    '<input type="text" name="provcontacto" id="provcontacto"/><BR>' +
-    '<label for="provmail"> mail  </label>' +
-    '<input type="text" name="provmail" id="provmail"/><BR>' +
-    '<label for="provpagweb"> Página Web  </label>' +
-    '<input type="text" name="provpagweb" id="provpagweb"/><BR>' +
-    '<label for="provcodmon"> Moneda  </label>' +
-    '<input type="text" name="provcodmon" id="provcodmon"/><BR>' +
-    '<input type="submit" value="Enviar"/>' +
-    '</form>';
-
-var cabecera = '<h1>Ingresa Datos de proveedores</h1>';
-
-router.get('/', function(req, res, next) {
-    res.send('<html><body>' +
-        cabecera +
-        formulario +
-        '</html></body>'
-    );
-
-});
 
 
 router.post('/', function(req, res) {
