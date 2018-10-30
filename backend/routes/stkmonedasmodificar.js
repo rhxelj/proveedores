@@ -28,7 +28,6 @@ indice = req.params.id;
  descr = req.body.StkMonedasDescripcion;
  cotiz = req.body.StkMonedasCotizacion;
 
- console.log(cotiz)
    conexion.query ('UPDATE StkMonedas SET StkMonedasDescripcion = "' + descr + '", StkMonedasCotizacion = ' + cotiz + ' WHERE idStkMonedas = "' + indice + '"',
 
         function(err, result) {
