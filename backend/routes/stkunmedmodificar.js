@@ -26,7 +26,7 @@ indice = req.params.id;
 
  descr = req.body.StkUnMedDesc;
  
- conexion.query ('UPDATE StkUnMed SET StkUnMedDesc = "' + descr + ' WHERE idStkUnMed = "' + indice + '"',
+ conexion.query ('UPDATE StkUnMed SET StkUnMedDesc = "' + descr + '" WHERE idStkUnMed = "' + indice + '"',
 
         function(err, result) {
             if (err) {
