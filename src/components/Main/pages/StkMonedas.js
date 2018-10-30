@@ -37,24 +37,23 @@ class Monedas extends Component {
     }
 
     // //Update
-    // ActualizaMoneda = (params) => {
+    ActualizaMoneda = (params) => {
+      const  monedas  = params;
      
-    //   const  monedas  = params;
-     
-    // request                  
-    //    .post('http://localhost:4000/modificarmonedas/'+monedas.idStkMonedas)
-    //    .set('Content-Type', 'application/json')
+    request                  
+       .post('http://localhost:4000/stkmonedasmodificar/'+monedas.idStkMonedas)
+       .set('Content-Type', 'application/json')
        
-    // //    .send({ idtipomonedas: this.state.idtipomonedas})
-    //    .send({ StkMonedasDescripcion: params.StkMonedasDescripcion})
-    //    .send({ StkMonedasCotizacion: params.StkMonedasCotizacion})
-    //    .set('X-API-Key', 'foobar')
-    //    .then(function(res) {
-    //   // res.body, res.headers, res.status
-    //     });
+    //    .send({ idtipomonedas: this.state.idtipomonedas})
+       .send({ StkMonedasDescripcion: params.StkMonedasDescripcion})
+       .send({ StkMonedasCotizacion: params.StkMonedasCotizacion})
+       .set('X-API-Key', 'foobar')
+       .then(function(res) {
+      // res.body, res.headers, res.status
+        });
        
-    //     //this.getproveedores();
-    //  }
+        //this.getproveedores();
+     }
     
     //  deleteProduct = (id)=> {
         
