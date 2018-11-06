@@ -7,7 +7,7 @@ class AgregarUnidadMedidas extends Component {
     constructor(props){
         super(props)
         this.state = {
-            url: IpServidor +'/agregarstkunmed',
+            url: IpServidor +'/stkunmedagregar',
             idStkUnMed:'',
             StkUnMedDesc:'',
         }

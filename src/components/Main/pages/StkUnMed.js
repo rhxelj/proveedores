@@ -12,7 +12,7 @@ class UnidadMedidas extends Component {
     constructor(props){
         super(props)
         this.state = {
-            url: IpServidor +'/leerstkunmed',
+            url: IpServidor,
             toggle: false,
             idStkUnMed:'',
             StkUnMedDesc:'',
@@ -27,7 +27,7 @@ class UnidadMedidas extends Component {
     read = _ => {
         // const url = IpServidor +'/agregarstkunmed'
         request
-        .get(this.state.url)
+        .get(this.state.url + '/stkunmedleer')
         .set('Content-Type', 'application/json')
             .then(res=> {
             const datos = JSON.parse(res.text)
@@ -36,24 +36,23 @@ class UnidadMedidas extends Component {
     }
 
     // //Update
-    // ActualizaMoneda = (params) => {
+    ActualizaUnMed = (params) => {
      
-    //   const  datos  = params;
+        const  datos  = params;
      
-    // request                  
-    //    .post('http://localhost:4000/modificarmonedas/'+datos.idStkMonedas)
-    //    .set('Content-Type', 'application/json')
+    request                  
+       .post(this.state.url + '/stkunmedmodificar/' + datos.idStkUnMed)
+       .set('Content-Type', 'application/json')
        
-    // //    .send({ idtipomonedas: this.state.idtipomonedas})
-    //    .send({ StkMonedasDescripcion: params.StkMonedasDescripcion})
-    //    .send({ StkMonedasCotizacion: params.StkMonedasCotizacion})
-    //    .set('X-API-Key', 'foobar')
-    //    .then(function(res) {
-    //   // res.body, res.headers, res.status
-    //     });
+    //    .send({ idtipomonedas: this.state.idtipomonedas})
+       .send({ StkUnMedDesc: params.StkUnMedDesc})
+       .set('X-API-Key', 'foobar')
+       .then(function(res) {
+      // res.body, res.headers, res.status
+        });
        
-    //     //this.getproveedores();
-    //  }
+        //this.getproveedores();
+     }
     
     //  deleteProduct = (id)=> {
         
@@ -99,7 +98,7 @@ class UnidadMedidas extends Component {
               const datos = [...this.state.datos]
               datos[cellInfo.index][cellInfo.column.id] = e.target.innerHTML
               this.setState({ datos })
-            //   this.ActualizaMoneda(cellInfo.original)
+              this.ActualizaUnMed(cellInfo.original)
             }}
             dangerouslySetInnerHTML={{
               __html: this.state.datos[cellInfo.index][cellInfo.column.id]
@@ -131,7 +130,7 @@ class UnidadMedidas extends Component {
                     <div className="row">
                         <div className="col s12 ">
                             <div className="">
-                                <div className="card-content  white-text">
+                                <div className="card-content  black-text">
                                     <StkUnMedAgregar click={()=>this.toggle()} read={()=>this.read()}> </StkUnMedAgregar>
                                 </div>
                             </div>
@@ -141,7 +140,8 @@ class UnidadMedidas extends Component {
                 :
                 <p onClick={()=>this.toggle()} className='btn'>AGREGAR datos</p>
                 }
-               
+               {!this.state.toggle 
+               ? 
                 <ReactTable
                         data={datosTabla}
 
@@ -181,7 +181,9 @@ class UnidadMedidas extends Component {
                         defaultPageSize={20}
                         className="-striped -highlight"
                     />
-            </div>
+                    :
+                    <div></div>}
+                </div>
         )
     }
 }

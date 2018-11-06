@@ -13,7 +13,7 @@ import StkMonedas   from './pages/StkMonedas'
 import Proveedores  from './pages/Proveedores'
 import StkUnMed     from './pages/StkUnMed'
 
-import StkMonedasBorrar from './pages/StkMonedasBorrar';
+// import StkMonedasBorrar from './pages/StkMonedasBorrar';
 // import LeerProveedor from './pages/LeerProveedor'
 const Main = () => (
     <main>

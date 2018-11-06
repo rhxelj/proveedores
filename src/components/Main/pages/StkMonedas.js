@@ -138,7 +138,7 @@ class Monedas extends Component {
                     <div className="row">
                         <div className="col s12 ">
                             <div className="">
-                                <div className="card-content  white-text">
+                                <div className="card-content  black-text">
                                     <StkMonedasAgregar click={()=>this.toggle()} read={()=>this.read()}> </StkMonedasAgregar>
                                 </div>
                             </div>
@@ -148,7 +148,9 @@ class Monedas extends Component {
                 :
                 <p onClick={()=>this.toggle()} className='btn'>  AGREGAR MONEDAS </p>
                 }
-               
+
+                {!this.state.toggle
+                ?
                 <ReactTable
                         data={monedas}
 
@@ -193,6 +195,9 @@ class Monedas extends Component {
                         defaultPageSize={20}
                         className="-striped -highlight"
                     />
+                :
+                    <div></div>
+                }
             </div>
         )
     }

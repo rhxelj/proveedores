@@ -74,6 +74,8 @@ class AgregarMonedas extends Component {
             <div className="section">
                 <div className="row">
                     {/* <form className="col s12" onSubmit={this.submitMoneda}> */}
+                   
+                   
                     <form className="col s12" >
                         <div className="row">
                             <div className="input-field col s5">

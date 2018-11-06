@@ -131,7 +131,6 @@ class Monedas extends Component {
                 {/* <BorrarMonedas ></BorrarMonedas> */}
                 <h1>ABM DE Monedas</h1>
                 
-                
                 {this.state.toggle
                 ?
                 <div>
@@ -149,50 +148,57 @@ class Monedas extends Component {
                 <p onClick={()=>this.toggle()} className='btn'>AGREGAR monedas</p>
                 }
                
-                <ReactTable
-                        data={monedas}
+                
 
-                        filterable
-                        defaultSorted={[
-                            {
-                                id: "codigo",
-                                desc: true
-                            }
-                        ]}
+               {!this.state.toggle
+                ?
+                    <ReactTable
+                            data={monedas}
 
-                        columns={[
-                             {                   
-                            columns: [
-                                    {
-                                    Header: "Código",
-                                    id:"codigo",
-                                    accessor: "idStkMonedas"
-                                    
-                                    },
-                                    {
-                                    Header: "Denomiación",
-                                    accessor: "StkMonedasDescripcion",
-                                    Cell: this.renderEditable
-                                    },
-                                    {
-                                    Header: "Cotización",
-                                    accessor: "StkMonedasCotizacion",
-                                    Cell: this.renderEditable
-                                    },
-                                    {
-                                        Header: "",
-                                        accessor: "borrar",
-                                        // Cell: this.renderEditable
-                                    }
+                            filterable
+                            defaultSorted={[
+                                {
+                                    id: "codigo",
+                                    desc: true
+                                }
+                            ]}
+
+                            columns={[
+                                {                   
+                                columns: [
+                                        {
+                                        Header: "Código",
+                                        id:"codigo",
+                                        accessor: "idStkMonedas"
                                         
-                                    
-                            ]
-                        }                
-                            
-                        ]}
-                        defaultPageSize={20}
-                        className="-striped -highlight"
+                                        },
+                                        {
+                                        Header: "Denomiación",
+                                        accessor: "StkMonedasDescripcion",
+                                        Cell: this.renderEditable
+                                        },
+                                        {
+                                        Header: "Cotización",
+                                        accessor: "StkMonedasCotizacion",
+                                        Cell: this.renderEditable
+                                        },
+                                        {
+                                            Header: "",
+                                            accessor: "borrar",
+                                            // Cell: this.renderEditable
+                                        }
+                                            
+                                        
+                                ]
+                            }                
+                                
+                            ]}
+                            defaultPageSize={20}
+                            className="-striped -highlight"
                     />
+                :
+                    <div></div>  
+                }
             </div>
         )
     }

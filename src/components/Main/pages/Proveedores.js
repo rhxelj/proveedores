@@ -3,10 +3,11 @@ import request from 'superagent'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
-import AgregarProveedor from './ProveedoresAgregar'
+// import AgregarProveedor from './ProveedoresAgregar'
 import BorrarProveedores from './ProveedoresBorrar'
 
 import IpServidor from './VariablesDeEntorno'
+import ProveedoresAgregar from './ProveedoresAgregar';
 
 class Proveedores extends Component {
     constructor(props){
@@ -159,7 +160,7 @@ class Proveedores extends Component {
                         <div className="col s12 ">
                             <div className="">
                                 <div className="card-content  white-text">
-                                    <AgregarProveedor click={()=>this.toggle()} read={()=>this.read()}> </AgregarProveedor>
+                                    <ProveedoresAgregar click={()=>this.toggle()} read={()=>this.read()}> </ProveedoresAgregar>
                                 </div>
                             </div>
                         </div>

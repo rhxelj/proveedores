@@ -8,7 +8,7 @@ class BorrarUnidadMedidas extends Component {
     constructor(props){
         super(props)
         this.state = {
-            url: IpServidor +'/borrarstkunmed/',
+            url: IpServidor +'/stkunmedborrar/',
             monedas:[],
             // filtrado:[],
             filtered:'',

@@ -1,7 +1,8 @@
 import React, { Component} from 'react'
 import request from 'superagent'
-import Dropdown from 'react-dropdown'
+// import Dropdown from 'react-dropdown'
 import IpServidor from './VariablesDeEntorno'
+
 class ProveedoresAgregar extends Component {
     constructor(props){
         super(props)
@@ -54,7 +55,7 @@ class ProveedoresAgregar extends Component {
         .set('X-API-Key', 'foobar')
         .then(function(res) {
         // res.body, res.headers, res.status
-                console.log(res.status);
+                // console.log(res.status);
             });
 
     }   
@@ -111,7 +112,7 @@ class ProveedoresAgregar extends Component {
     render(){
       
 
-        const tipoproveedor = this.state.tipoprov
+        // const tipoproveedor = this.state.tipoprov
 
         return( 
             
@@ -135,6 +136,22 @@ class ProveedoresAgregar extends Component {
                     
                 <div className="row">
                     <form className="col s12" onSubmit={this.submitPost}>
+                            
+                        {/* Bloque de select para hacer pruebas --INICIO */}
+                            <div className="row">
+                                <div className="input-field col s12">
+                                    <h1>SELECT TABLE</h1>
+                                    <select>
+                                    <option value="0" >Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                    </select>
+                                    <label>Materialize Select</label>
+                                </div>
+                            </div>
+                        {/* Bloque de select para hacer pruebas -- FIN*/}
+                            
                             <div className="row">
                                 <div className="input-field col s12">
                                     <input placeholder="Descripción" 

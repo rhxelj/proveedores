@@ -12,7 +12,7 @@ const Header = () => (
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link to="/StkMonedas">Monedas</Link></li>
                     <li><Link to="/Proveedores">Proveedores</Link></li>
-                    <li><Link to="/Unidad Medida">StkUnMed</Link></li>
+                    <li><Link to="/StkUnMed">Unidad Medida</Link></li>
                     {/* <li><Link to="/AgregarMonedas">Agregar Monedas</Link></li> */}
                     {/* <li><Link to="/BorrarMonedas">Borrar Monedas</Link></li> */}
                     {/* <li><Link to="/ModificarMonedas">Modificar Monedas</Link></li> */}
